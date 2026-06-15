@@ -45,6 +45,13 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                 <li class="active">
+                                    <a href="categories">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid3"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Categories</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                                 <li class="active">
                                     <a href="/profile">
                                         <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>

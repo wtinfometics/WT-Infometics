@@ -25,7 +25,7 @@ class Category extends Model
     }
 
      // Get Projects Data
-    public function Projects(){
+    public function projects(){
         return $this->hasOne(Project::class,'category_id','category_id');
     }
 

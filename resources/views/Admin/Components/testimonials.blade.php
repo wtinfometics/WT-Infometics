@@ -1,5 +1,3 @@
- @extends('Admin.Pages.main')
- @section('content')
 
 <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -131,5 +129,3 @@
                             </div>
                         </div>
                     </div>
-                    
- @endsection

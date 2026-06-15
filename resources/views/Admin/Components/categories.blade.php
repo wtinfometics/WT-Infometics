@@ -1,14 +1,16 @@
-
  <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
 
                                     <div class="page-body">
-                                        
+                                       
                                         <div class="card py-5">
                                             <div class="card-header d-flex justify-content-between mx-4">
-                                                <h3 class="font-weight-bold">Contacts </h3>
+                                                <h3 class="font-weight-bold">Categories </h3>
+                                             <a href="/addcategory" class="btn btn-primary text-decoration-none">
+                                                    <i class="ti-plus"></i> Create
+                                                </a>
                                             </div>
                                             <div class="card-block table-border-style mx-4">
                                                 <div class="table-responsive table-striped ">
@@ -16,10 +18,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>Post Name</th>
-                                                                <th>Category </th>
-                                                                <th>Upload Date</th>
-                                                                <th>View </th>
+                                                                <th>Category Name</th>
                                                                 <th>Status </th>
                                                                 <th>Action </th>
                                                             </tr>
@@ -27,10 +26,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">1</th>
-                                                                <td>Post name 1</td>
-                                                                <td>SEO</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
+                                                                <td>Category name 1</td>
                                                                 <td>
                                                                     <div class="badge-main">
                                                                         <label
@@ -48,10 +44,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">2</th>
-                                                                <td>Post name 2</td>
-                                                                <td>Web Development</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
+                                                                <td>Category name 2</td>
                                                                 <td>
                                                                     <div class="badge-main">
                                                                         <label
@@ -69,10 +62,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">3</th>
-                                                                <td>Post name 3</td>
-                                                                <td>Local Business</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
+                                                                <td>Category name 3</td>
                                                                 <td>
                                                                     <div class="badge-main">
                                                                         <label
