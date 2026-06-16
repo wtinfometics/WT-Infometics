@@ -1,4 +1,5 @@
  <div class="pcoded-content">
+        @include('Admin.Components.error',['success'=>$success,'message'=>$message])      
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
@@ -8,7 +9,7 @@
                                         <div class="card py-5">
                                             <div class="card-header d-flex justify-content-between mx-4">
                                                 <h3 class="font-weight-bold">Categories </h3>
-                                             <a href="/addcategory" class="btn btn-primary text-decoration-none">
+                                             <a href="/admin/categories/create" class="btn btn-primary text-decoration-none">
                                                     <i class="ti-plus"></i> Create
                                                 </a>
                                             </div>
@@ -24,60 +25,37 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @forelse($data as $category)
                                                             <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Category name 1</td>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td> {{ $category->category_name }} </td>
                                                                 <td>
                                                                     <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
+                                                                        <label class="badge badge-{{ $category->status ? 'success' : 'danger' }} badge-md badge-rounded">
+                                                                            {{ $category->status ? 'Active' : 'Inactive' }}
+                                                                        </label>
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
+                                                                    <a href="{{ url('/admin/categories/' . $category->category_id . '/edit') }}"
+                                                                        class="btn btn-warning text-dark">
+                                                                        Edit
+                                                                    </a>
+                                                                    <form action="{{ url('/admin/categories/' . $category->category_id) }}"
+                                                                        method="POST" style="display:inline;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class=" btn btn-danger text-light">delete</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Category name 2</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Category name 3</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-danger badge-md badge-rounded">Disable</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                             @empty
+                                            <tr>
+                                                <td colspan="4" class="text-center">{{$message}}</td>
+                                            </tr>
+                                        @endforelse
+                                                           
                                                         </tbody>
                                                     </table>
                                                 </div>

@@ -10,7 +10,7 @@ class Admin extends Model
     protected $table="admins";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'first_name',
         'last_name',
         'email',
@@ -19,5 +19,5 @@ class Admin extends Model
     ];
 
     // Primary Key
-    protected$fillable="admin_id";
+    protected$primaryKey="admin_id";
 }

@@ -10,7 +10,7 @@ class Testimonial extends Model
     protected $table="testimonials";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'name',
         'rating',
         'profile',
@@ -18,5 +18,5 @@ class Testimonial extends Model
     ];
 
     // Primary Key
-    protected$fillable="testimonial_id";
+    protected$primaryKey="testimonial_id";
 }

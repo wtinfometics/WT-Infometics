@@ -10,14 +10,14 @@ class Category extends Model
     protected $table="categories";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'category_name',
         'slug',
         'status',
     ];
 
     // Primary Key
-    protected$fillable="category_id";
+    protected$primaryKey="category_id";
 
     // Get Posts Data
     public function posts(){

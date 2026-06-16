@@ -138,6 +138,20 @@ var nav = $('.fixed-button');
      }
  });
 
+   setTimeout(function () {
+    $('.auto-hide').each(function () {
+        $(this)
+            .css({
+                'transition': 'opacity 0.5s',
+                'opacity': '0'
+            });
+
+        setTimeout(() => {
+            $(this).remove();
+        }, 500);
+    });
+}, 5000);
+
 // Project Time Function
 $(document).ready(function () {
 

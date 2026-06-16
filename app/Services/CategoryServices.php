@@ -27,7 +27,7 @@ class CategoryServices {
     }
 
     // Get All Categories
-    public function getAllCategories($data){
+    public function getAllCategories(){
         $categories=Category::latest()->get();
         if (!$categories->count()>0) {
             # If Categories Empty
@@ -52,7 +52,7 @@ class CategoryServices {
     }
 
     // Update Category
-    public function updateCategory($id){
+    public function updateCategory($id,$data){
         $category=$this->checkCategory($id);
         if (!$category['success']) {
             # if Category Exists
@@ -80,7 +80,7 @@ class CategoryServices {
     }
 
     // Delete  Category
-    public function deleteCategory($data){
+    public function deleteCategory($id){
         $category=$this->checkCategory($id);
         if (!$category['success']) {
             # if Category Exists

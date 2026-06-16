@@ -10,7 +10,7 @@ class Contact extends Model
     protected $table="contacts";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'name',
         'email',
         'subject',
@@ -18,5 +18,5 @@ class Contact extends Model
     ];
 
     // Primary Key
-    protected$fillable="contact_id";
+    protected$primaryKey="contact_id";
 }

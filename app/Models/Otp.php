@@ -10,12 +10,12 @@ class Otp extends Model
     protected $table="otps";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'otp',
         'email',
         'expires_at',
     ];
 
     // Primary Key
-    protected$fillable="otp_id";
+    protected$primaryKey="otp_id";
 }

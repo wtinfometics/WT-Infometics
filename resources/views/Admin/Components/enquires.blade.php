@@ -1,5 +1,5 @@
-
  <div class="pcoded-content">
+        @include('Admin.Components.error',['success'=>$success,'message'=>$message])    
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
@@ -17,78 +17,40 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>Post Name</th>
-                                                                <th>Category </th>
-                                                                <th>Upload Date</th>
-                                                                <th>View </th>
-                                                                <th>Status </th>
+                                                                <th>Name</th>
+                                                                <th>Company Name </th>
+                                                                <th>Service</th>
+                                                                <th>Date </th>
                                                                 <th>Action </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @forelse($data as $enquiry)
                                                             <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Post name 1</td>
-                                                                <td>SEO</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
+                                                                <th >{{ $loop->iteration }}</th>
+                                                                <td>{{ $enquiry->name }}</td>
+                                                                <td> {{ $enquiry->company_name }} </td>
+                                                                <td> {{ $enquiry->service_name }} </td>
+                                                                <td>{{ $enquiry->created_at }}</td>
                                                                 <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
+                                                                      <a type="button" href="{{ url('/admin/enquiries/' . $enquiry->enquiry_id . '/view') }}" class="btn btn-primary"><i
+                                                                            class="ti-pencil-alt"></i>view
+                                                                    </a>
+                                                                    <form action="{{ url('/admin/enquiries/' . $enquiry->enquiry_id) }}"
+                                                                        method="POST" style="display:inline;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button class="btn btn-danger"><i
+                                                                                class="ti-trash"></i>Delete
+                                                                        </button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Post name 2</td>
-                                                                <td>Web Development</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Post name 3</td>
-                                                                <td>Local Business</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-danger badge-md badge-rounded">Disable</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                                                                    @empty
+                                            <tr>
+                                                <td colspan="6" class="text-center">{{$message}}</td>
+                                            </tr>
+                                        @endforelse
                                                         </tbody>
                                                     </table>
                                                 </div>

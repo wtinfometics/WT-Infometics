@@ -48,23 +48,65 @@
                 <div class="col-lg-6 wow slideInLeft">
                     <div class="form-card">
                         <h4 class="mb-4">Send Message</h4>
-                        <form>
+                        @php
+    $alertType = null;
+    $alertMessage = null;
+
+    if (!empty($success) && !empty($message)) {
+        $alertType = $success ? 'success' : 'danger';
+        $alertMessage = $message;
+    } elseif (session()->has('success')) {
+        $alertType = 'success';
+        $alertMessage = session('success');
+    } elseif (session()->has('error')) {
+        $alertType = 'danger';
+        $alertMessage = session('error');
+    }
+@endphp
+
+@if ($alertMessage)
+    <div class="alert alert-{{ $alertType }} auto-hide">
+        {{ $alertMessage }}
+    </div>
+@endif
+                        <form method="post" action="/contact">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control custom-input" placeholder="Your Name">
+                                    <input type="text" class="form-control custom-input @error('name') is-invalid @enderror" name="name" placeholder="Your Name">
+                                    @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control custom-input" placeholder="Your Email">
+                                    <input type="email" class="form-control custom-input @error('email') is-invalid @enderror" name="email" placeholder="Your Email">
+                                    @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control custom-input" placeholder="Subject">
+                                    <input type="text" class="form-control custom-input @error('subject') is-invalid @enderror" name="subject" placeholder="Subject">
+                                    @error('subject')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control custom-input" rows="5"
+                                    <textarea class="form-control custom-input @error('message') is-invalid @enderror" name="message" rows="5"
                                         placeholder="Message"></textarea>
+                                        @error('message')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn-send">
+                                    <button class="btn-send" type="submit">
                                         Send Message
                                     </button>
                                 </div>

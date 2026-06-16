@@ -10,7 +10,7 @@ class PostMeta extends Model
     protected $table="post_meta";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'post_id',
         'meta_title',
         'meta_description',
@@ -18,7 +18,7 @@ class PostMeta extends Model
     ];
 
     // Primary Key
-    protected$fillable="post_meta_id";
+    protected$primaryKey="post_meta_id";
 
     // Get Post Data
     public function post(){

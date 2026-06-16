@@ -10,7 +10,7 @@ class Enquiry extends Model
     protected $table="enquiries";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'name',
         'email',
         'phone',
@@ -20,5 +20,5 @@ class Enquiry extends Model
     ];
 
     // Primary Key
-    protected$fillable="enquiry_id";
+    protected$primaryKey="enquiry_id";
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EnquiryController;
 
 Route::get('/', function () {
     return view('User.index');
@@ -86,3 +88,32 @@ Route::get('/addcategory', function () {
 
 Route::post('/category/update/{id}', [CategoryController::class, 'update'])
     ->name('category.update');
+
+    Route::post('/contact', [ContactController::class, 'store'])
+    ->name('contact.store');
+
+
+
+    Route::post('/enquiry', [EnquiryController::class, 'store'])
+    ->name('enquiry.store');
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/contacts', [ContactController::class, 'index']);
+        Route::get('/contacts/{contact_id}/view', [ContactController::class, 'view']);
+        Route::delete('/contacts/{contact_id}', [ContactController::class, 'delete']);
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/enquiries', [EnquiryController::class, 'index']);
+        Route::get('/enquiries/{enquiry_id}/view', [EnquiryController::class, 'view']);
+        Route::delete('/enquiries/{enquiry_id}', [EnquiryController::class, 'delete']);
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('/categories/create', [CategoryController::class, 'createCategory']);
+        Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/categories/{category_id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('/categories/{category_id}', [CategoryController::class, 'update'])->name('category.update');
+        Route::delete('/categories/{category_id}', [CategoryController::class, 'delete'])->name('category.delete');
+    });

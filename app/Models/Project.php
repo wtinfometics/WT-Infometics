@@ -10,7 +10,7 @@ class Project extends Model
     protected $table="projects";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'project_name',
         'category_id',
         'start_date',
@@ -28,7 +28,7 @@ class Project extends Model
     ];
 
     // Primary Key
-    protected$fillable="project_id";
+    protected$primaryKey="project_id";
 
     // Get Categories Data
     public function categories(){

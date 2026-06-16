@@ -133,5 +133,19 @@ spinner();
         }
     });
     
+    setTimeout(function () {
+    $('.auto-hide').each(function () {
+        $(this)
+            .css({
+                'transition': 'opacity 0.5s',
+                'opacity': '0'
+            });
+
+        setTimeout(() => {
+            $(this).remove();
+        }, 500);
+    });
+}, 15000);
+
 })(jQuery);
 

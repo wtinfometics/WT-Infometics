@@ -27,7 +27,7 @@ class ContactServices {
     }
 
     // Get All Contacts
-    public function getAllContacts($data){
+    public function getAllContacts(){
         $contacts=Contact::latest()->get();
         if (!$contacts->count()>0) {
             # If Contacts Empty

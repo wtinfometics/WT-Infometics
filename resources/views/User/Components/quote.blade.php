@@ -52,33 +52,94 @@
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
                     <div class="quote-form-card">
                         <h3 class="mb-4 text-center"> Request A Free Quote </h3>
-                        <form>
+                                         @php
+    $alertType = null;
+    $alertMessage = null;
+
+    if (!empty($success) && !empty($message)) {
+        $alertType = $success ? 'success' : 'danger';
+        $alertMessage = $message;
+    } elseif (session()->has('success')) {
+        $alertType = 'success';
+        $alertMessage = session('success');
+    } elseif (session()->has('error')) {
+        $alertType = 'danger';
+        $alertMessage = session('error');
+    }
+@endphp
+
+                        <form method="post" action="/enquiry">
+                            @csrf
                             <div class="row">
-                                <div class="col-md-6 mb-3"> <input type="text" class="form-control custom-input"
-                                        placeholder="Full Name"> </div>
-                                <div class="col-md-6 mb-3"> <input type="email" class="form-control custom-input"
-                                        placeholder="Email Address"> </div>
-                                <div class="col-md-6 mb-3"> <input type="tel" class="form-control custom-input"
-                                        placeholder="Mobile Number"> </div>
-                                <div class="col-md-6 mb-3"> <input type="text" class="form-control custom-input"
-                                        placeholder="Company Name"> </div>
-                                <div class="col-12 mb-3"> <select class="form-select custom-input">
-                                        <option selected> Select Service </option>
-                                        <option> Website Design </option>
-                                        <option> Website Development </option>
-                                        <option> SEO Services </option>
-                                        <option> Local SEO </option>
-                                        <option> Google Business Profile </option>
-                                        <option> Social Media Marketing </option>
-                                        <option> Google Ads </option>
-                                        <option> E-Commerce Marketing </option>
-                                        <option> Content Marketing </option>
-                                        <option> Complete Digital Marketing </option>
-                                    </select> </div>
-                                <div class="col-12 mb-3"> <textarea rows="5" class="form-control custom-input"
-                                        placeholder="Tell us about your project..."></textarea> </div>
-                                <div class="col-12"> <button class="btn quote-btn w-100"> Get Free Consultation <i
-                                            class="fas fa-arrow-right ms-2"></i> </button> </div>
+                                <div class="col-md-6 mb-3">
+                                     <input type="text" name="name" class="form-control custom-input @error('name') is-invalid @enderror"
+                                        placeholder="Full Name">
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror 
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                     <input type="email" name="email" class="form-control custom-input @error('email') is-invalid @enderror"
+                                        placeholder="Email Address">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror 
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                     <input type="tel" name="phone" class="form-control custom-input @error('phone') is-invalid @enderror"
+                                        placeholder="Phone Number">
+                                        @error('phone')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror 
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                     <input type="text" name="company_name" class="form-control custom-input @error('company_name') is-invalid @enderror"
+                                        placeholder="Company Name"> 
+                                        @error('company_name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+                                <div class="col-12 mb-3">
+                                     <select class="form-select custom-input @error('service_name') is-invalid @enderror" name="service_name">
+                                        <option value=""> Select Service </option>
+                                        <option value="Website Design"> Website Design </option>
+                                        <option value="Website Development"> Website Development </option>
+                                        <option value="SEO Services"> SEO Services </option>
+                                        <option value="Local SEO"> Local SEO </option>
+                                        <option value="Google Business Profile"> Google Business Profile </option>
+                                        <option value="Social Media Marketing"> Social Media Marketing </option>
+                                        <option value="Google Ads "> Google Ads </option>
+                                        <option value="E-Commerce Marketing"> E-Commerce Marketing </option>
+                                        <option value="Content Marketing"> Content Marketing </option>
+                                        <option value="Complete Digital Marketing"> Complete Digital Marketing </option>
+                                    </select> 
+                                        @error('service_name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+                                <div class="col-12 mb-3">
+                                     <textarea rows="5" class="form-control custom-input @error('message') is-invalid @enderror" name="message"
+                                        placeholder="Tell us about your project..."></textarea> 
+                                        @error('message')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+                                <div class="col-12">
+                                     <button class="btn quote-btn w-100" type="submit"> Get Free Consultation <i
+                                            class="fas fa-arrow-right ms-2"></i> </button> 
+                                </div>
                             </div>
                         </form>
                     </div>

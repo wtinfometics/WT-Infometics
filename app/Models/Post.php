@@ -10,7 +10,7 @@ class Post extends Model
     protected $table="posts";                
 
     // Modal data
-    protected $primaryKey=[
+    protected $fillable=[
         'post_title',
         'post_slug',
         'category_id',
@@ -21,7 +21,7 @@ class Post extends Model
     ];
 
     // Primary Key
-    protected$fillable="post_id";
+    protected$primaryKey="post_id";
 
     // Get Categories Data
     public function categories(){

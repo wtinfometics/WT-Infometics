@@ -39,7 +39,8 @@ class CategoryValidator
     private static function createRules(): array
     {
         return [
-            'category_name' => 'required|string|max:255|unique:categories,category_name'
+            'category_name' => 'required|string|max:255|unique:categories,category_name',
+            'status'        => 'boolean',
         ];
     }
 
@@ -49,8 +50,8 @@ class CategoryValidator
     private static function updateRules(?int $id): array
     {
         return [
-            'category_name' => 'required|string|max:255|unique:categories,category_name,' . $id,
-            'status'        => 'required|in:active,inactive',
+            'category_name' => 'required|string|max:255' . $id,
+            'status'        => 'required|boolean',
         ];
     }
 //   
