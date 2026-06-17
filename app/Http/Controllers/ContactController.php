@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactValidator;
+use Illuminate\Support\Facades\Log;
 
 use App\Services\ContactServices;
 
@@ -30,7 +31,7 @@ class ContactController extends Controller
             if ($saveContact['success']) {
                 return redirect('/contact')->with('success', $saveContact['message']);
             }
-            return redirect()->back()->with('error', $saveContact['message'])->withInput();
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
@@ -45,6 +46,7 @@ class ContactController extends Controller
             return view('Admin.Pages.contacts', compact('success', 'message', 'data'));
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
@@ -59,6 +61,7 @@ class ContactController extends Controller
             return view('Admin.Pages.contact-view', compact('success', 'message', 'data'));
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
     
@@ -76,6 +79,7 @@ class ContactController extends Controller
             }
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 

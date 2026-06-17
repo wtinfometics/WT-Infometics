@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryValidator;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 use App\Services\CategoryServices;
 
@@ -43,7 +44,7 @@ class CategoryController extends Controller
             }
        } catch (\Throwable $th) {
         //throw $th;
-        return redirect()->back()->with('error', $th->getMessage())->withInput();
+         return redirect()->back()->with('error', $th->getMessage())->withInput();
        }
     }
 
@@ -98,7 +99,7 @@ class CategoryController extends Controller
             }
         } catch (\Throwable $th) {
             //throw $th;
-            return redirect()->back()->with('error', $th->getMessage())->withInput();
+           return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 

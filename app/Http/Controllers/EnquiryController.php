@@ -38,6 +38,7 @@ class EnquiryController extends Controller
             
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
@@ -52,6 +53,7 @@ class EnquiryController extends Controller
             return view('Admin.Pages.enquires', compact('success', 'message', 'data'));
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
@@ -84,6 +86,7 @@ class EnquiryController extends Controller
             }
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 }

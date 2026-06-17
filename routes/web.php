@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('User.index');
@@ -116,4 +117,13 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update'])
         Route::get('/categories/{category_id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
         Route::post('/categories/{category_id}', [CategoryController::class, 'update'])->name('category.update');
         Route::delete('/categories/{category_id}', [CategoryController::class, 'delete'])->name('category.delete');
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
+        Route::get('/projects/create', [ProjectController::class, 'indexAddProjectPage']);
+        Route::post('/projects', [ProjectController::class, 'store'])->name('project.store');
+        Route::get('/projects/{project_id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::post('/projects/{project_id}', [ProjectController::class, 'update'])->name('project.update');
+        Route::delete('/projects/{project_id}', [ProjectController::class, 'delete'])->name('project.delete');
     });

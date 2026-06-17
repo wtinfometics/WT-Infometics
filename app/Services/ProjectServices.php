@@ -27,8 +27,8 @@ class ProjectServices {
     }
 
     // Get All Projects
-    public function getAllProjects($data){
-        $projects=Project::latest()->get();
+    public function getAllProjects(){
+        $projects=Project::with('categories')->latest()->get();
         if (!$projects->count()>0) {
             # If Projects Empty
             return [
@@ -52,7 +52,7 @@ class ProjectServices {
     }
 
     // Update Project
-    public function updateProject($id){
+    public function updateProject($id,$data){
         $projects=$this->checkProject($id);
         if (!$projects['success']) {
             # if Project Exists
@@ -80,7 +80,7 @@ class ProjectServices {
     }
 
     // Delete  Project
-    public function deleteProject($data){
+    public function deleteProject($id){
         $projects=$this->checkProject($id);
         if (!$projects['success']) {
             # if Project Exists
