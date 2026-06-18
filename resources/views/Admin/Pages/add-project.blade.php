@@ -2,6 +2,7 @@
  @section('content')
 
  @include('Admin.Components.add-project',[
+ 'categoryData'=>categoryData,
  'success'=>$success ,
     'message'=>$message ,
  ])        include Add Project Component

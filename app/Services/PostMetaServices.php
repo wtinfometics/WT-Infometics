@@ -11,7 +11,7 @@ class PostMetaServices {
       return PostMeta::updateOrCreate(
         ['post_id' => $id],
         $data
-    )->increment('view');
+    );
     }
 
     //Delete Post View

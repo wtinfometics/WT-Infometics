@@ -5,19 +5,25 @@ namespace App\Services;
 use App\Models\Post;
 
 use App\Services\ImageServices;
+use App\Services\PostMetaServices;
+use App\Services\PostViewServices;
 
 class PostServices {
 
     protected $imageService;
-    protected $folder='Posts';
+    protected $postmetaService;
+    protected $postViewService;
+    public $folder='Posts';
 
     // Inject Image service using constructor
-    public function __construct(ImageServices $imageService){
+    public function __construct(ImageServices $imageService,PostMetaServices $postmetaService,PostViewServices $postViewService){
         $this->imageService = $imageService;
+        $this->postmetaService = $postmetaService;
+        $this->postViewService = $postViewService;
     }
 
      // Create New Post
-    public function createPost($data,$image){
+    public function createPost($data,$image,$metadata){
         $fileName=$this->checkImage($data,$image);          #  Save The Featured Image
         $data['featured_image']=$fileName;
         $savePost=Post::create($data);
@@ -29,6 +35,9 @@ class PostServices {
                 'status'=>400
             ]; 
         } else {
+            $id=$savePost->post_id;
+             $this->postmetaService->addPostMeta($id,$metadata);
+             $this->postViewService->addPostView($id);
             # If New Post Created
             return [
                 'success'=>true,
@@ -39,8 +48,8 @@ class PostServices {
     }
 
     // Get All Posts
-    public function getAllPosts($data){
-        $posts=Post::with('postView')->latest()->get();
+    public function getAllPosts(){
+        $posts=Post::with(['postView','categories'])->latest()->get();
         if (!$posts->count()>0) {
             # If Posts Empty
             return [
@@ -64,15 +73,16 @@ class PostServices {
     }
 
     // Update Post
-    public function updatePost($id,$data,$image){
+    public function updatePost($id,$data,$image,$metaData){
         $post=$this->checkPost($id);
         if (!$post['success']) {
             # if Post Exists
             return $post;
         } else {
+            // dd($data);
             # if Post Exists
             $postData=$post['data'];
-            if ($image) {
+            if (! empty($image)) {
                 # If Image Exists
                 $featuredImage=$postData->featured_image;
                 $this->imageService->deleteFile($featuredImage);        # Delete the Existing Featured Image
@@ -88,6 +98,7 @@ class PostServices {
                     'status'=>400
                 ];
             } else {
+                $this->postmetaService->addPostMeta($id,$metaData);
                 # If Post Is Updated
                 return [
                     'success'=>true,
@@ -99,7 +110,7 @@ class PostServices {
     }
 
     // Delete  Post
-    public function deletePost($data){
+    public function deletePost($id){
         $post=$this->checkPost($id);
         if (!$post['success']) {
             # if Post Exists
@@ -109,6 +120,8 @@ class PostServices {
             $postData=$post['data'];
             $featuredImage=$postData->featured_image;
             $this->imageService->deleteFile($featuredImage);        # Delete Featured Image
+            $this->postmetaService->deletePostMetaData($id);        # Delete Featured Image
+            $this->postViewService->deletePostViewData($id);        # Delete Featured Image
             $deletePost=$postData->delete();
             if (!$deletePost) {
                 # If Post Not Deleted
@@ -147,16 +160,37 @@ class PostServices {
             ];
         }
     }
+
+    // Get Post Data
+      public function getPostData($id){
+        $post=Post::with('postMeta')->find($id);
+        if (!$post) {
+            # if Post Exists
+            return [
+                'success'=>false,
+                'message'=>'This Post Not Exists',
+                'status'=>404
+            ];
+        } else {
+            # if Post Exists
+            return [
+                'success'=>true,
+                'data'=>$post,
+                'status'=>200
+            ];
+        }
+    }
     
     // check Image
     protected function checkImage($data,$image){
         $postName=$data['post_title'];
-        $fileName=$this->imageService->saveFile($image,$folder,$postName);
+        $fileName=$this->imageService->saveFile($image,$this->folder,$postName);
         return $fileName;
     }
 
     // get Post  All Data
     public function getPostDetails($id){
+        $this->postViewService->addPostView($id);
         $post-Post::with(['categories','postMeta','postView'])->find($id);
         if (!$post) {
             # if Post Exists

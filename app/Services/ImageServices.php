@@ -36,8 +36,6 @@ class ImageServices {
         if (File::exists($filePath)) {
             # If file pounds
             File::delete($filePath);
-            return true;
         }
-        return  false;
     }
 }

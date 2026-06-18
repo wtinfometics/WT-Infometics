@@ -11,6 +11,7 @@ use App\Services\CategoryServices;
 class ProjectController extends Controller
 {
     protected $projectService;
+    protected $categoryService;
 
     // Inject Project Service using constructor
     public function __construct(ProjectServices $projectService,CategoryServices $categoryService){

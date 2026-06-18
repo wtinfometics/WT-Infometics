@@ -30,6 +30,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/jquery.mCustomScrollbar.css')}}">
+
+        <!-- CK Editor CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -90,6 +93,13 @@
                 nav.removeClass('active');
             }
         });
+    </script>
+     <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 </body>
 

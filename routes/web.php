@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('User.index');
@@ -120,10 +121,10 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update'])
     });
 
     Route::prefix('admin')->group(function () {
-        Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
-        Route::get('/projects/create', [ProjectController::class, 'indexAddProjectPage']);
-        Route::post('/projects', [ProjectController::class, 'store'])->name('project.store');
-        Route::get('/projects/{project_id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
-        Route::post('/projects/{project_id}', [ProjectController::class, 'update'])->name('project.update');
-        Route::delete('/projects/{project_id}', [ProjectController::class, 'delete'])->name('project.delete');
+        Route::get('/posts', [PostController::class, 'index'])->name('post.index');
+        Route::get('/posts/create', [PostController::class, 'indexAddPost']);
+        Route::post('/posts', [PostController::class, 'store'])->name('post.store');
+        Route::get('/posts/{post_id}/edit', [PostController::class, 'edit'])->name('post.edit');
+        Route::post('/posts/{post_id}', [PostController::class, 'update'])->name('post.update');
+        Route::delete('/posts/{post_id}', [PostController::class, 'delete'])->name('post.delete');
     });
