@@ -13,7 +13,7 @@ class Testimonial extends Model
     protected $fillable=[
         'name',
         'rating',
-        'profile',
+        'profile_img',
         'message',
     ];
 

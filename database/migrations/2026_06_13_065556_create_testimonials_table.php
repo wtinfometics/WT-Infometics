@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('testimonial_id');
             $table->string('name');
             $table->string('rating');
-            $table->string('profile-img');
+            $table->string('profile_img');
             $table->string('message');
             $table->timestamps();
         });

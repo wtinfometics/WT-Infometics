@@ -9,7 +9,7 @@
                                         <div class="card py-5">
                                             <div class="card-header d-flex justify-content-between mx-4">
                                                 <h3 class="font-weight-bold">Testimonials </h3>
-                                                <a href="/addtestimonial" class="btn btn-primary text-decoration-none">
+                                                <a href="/admin/testimonials/create" class="btn btn-primary text-decoration-none">
                                                     <i class="ti-plus"></i> Create
                                                 </a>
                                             </div>
@@ -18,79 +18,38 @@
                                                     <table class="table ">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th>Post Name</th>
-                                                                <th>Category </th>
-                                                                <th>Upload Date</th>
-                                                                <th>View </th>
-                                                                <th>Status </th>
+                                                                <th>Sl No</th>
+                                                                <th>Person Name</th>
+                                                                <th>Rating </th>
                                                                 <th>Action </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @forelse($data as $testimonial)
                                                             <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Post name 1</td>
-                                                                <td>SEO</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
+                                                                <th>{{ $loop->iteration }}<</th>
+                                                                <td>{{ $testimonial->name }}</td>
+                                                                <td>{{ $testimonial->rating }}</td>
                                                                 <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
+                                                                     <a href="{{ url('/admin/testimonials/' . $testimonial->testimonial_id . '/edit') }}"
+                                                                        class="btn btn-warning text-dark">
+                                                                        Edit
+                                                                    </a>
+                                                                    <form action="{{ url('/admin/testimonials/' . $testimonial->testimonial_id) }}"
+                                                                        method="POST" style="display:inline;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"
+                                                                            class=" btn btn-danger text-light">delete</button>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Post name 2</td>
-                                                                <td>Web Development</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-success badge-md badge-rounded">Active</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Post name 3</td>
-                                                                <td>Local Business</td>
-                                                                <td>22-11-2026</td>
-                                                                <td>15</td>
-                                                                <td>
-                                                                    <div class="badge-main">
-                                                                        <label
-                                                                            class="badge badge-danger badge-md badge-rounded">Disable</label>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-warning"><i
-                                                                            class="ti-pencil-alt"></i>Edit
-                                                                    </button>
-                                                                    <button class="btn btn-danger"><i
-                                                                            class="ti-trash"></i>Delete
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                            @empty
+                                            <tr>
+                                                <td colspan="4" class="text-center">{{$message}}</td>
+                                            </tr>
+                                        @endforelse
+                                       
                                                         </tbody>
                                                     </table>
                                                 </div>

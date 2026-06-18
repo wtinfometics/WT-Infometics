@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
     return view('User.index');
@@ -39,50 +40,10 @@ Route::get('/dashboard', function () {
     return view('Admin.Pages.dashboard');
 });
 
-Route::get('/posts', function () {
-    return view('Admin.Pages.posts');
-});
-
-Route::get('/projects', function () {
-    return view('Admin.Pages.projects');
-});
-
-Route::get('/contacts', function () {
-    return view('Admin.Pages.contacts');
-});
-
-Route::get('/enquires', function () {
-    return view('Admin.Pages.enquires');
-});
-
-Route::get('/testimonials', function () {
-    return view('Admin.Pages.testimonials');
-});
-
-Route::get('/categories', function () {
-    return view('Admin.Pages.categories');
-});
-
-
 Route::get('/profile', function () {
     return view('Admin.Pages.profile');
 });
 
-Route::get('/addproject', function () {
-    return view('Admin.Pages.add-project');
-});
-
-Route::get('/addpost', function () {
-    return view('Admin.Pages.add-post');
-});
-
-Route::get('/addtestimonial', function () {
-    return view('Admin.Pages.add-testimonial');
-});
-
-Route::get('/addcategory', function () {
-    return view('Admin.Pages.add-category');
-});
 
 
     Route::post('/category', [CategoryController::class, 'store'])
@@ -127,4 +88,13 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update'])
         Route::get('/posts/{post_id}/edit', [PostController::class, 'edit'])->name('post.edit');
         Route::post('/posts/{post_id}', [PostController::class, 'update'])->name('post.update');
         Route::delete('/posts/{post_id}', [PostController::class, 'delete'])->name('post.delete');
+    });
+
+     Route::prefix('admin')->group(function () {
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonial.index');
+        Route::get('/testimonials/create', [TestimonialController::class, 'indexAddTestimonial']);
+        Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonial.store');
+        Route::get('/testimonials/{testimonial_id}/edit', [TestimonialController::class, 'edit'])->name('testimonial.edit');
+        Route::post('/testimonials/{testimonial_id}', [TestimonialController::class, 'update'])->name('testimonial.update');
+        Route::delete('/testimonials/{testimonial_id}', [TestimonialController::class, 'delete'])->name('testimonial.delete');
     });

@@ -4,10 +4,22 @@ namespace App\Services;
 
 use App\Models\Testimonial;
 
+use App\Services\ImageServices;
+
 class TestimonialServices {
 
+    protected $imageService;
+    public $folder='Testimonials';
+
+    // Inject Image service using constructor
+    public function __construct(ImageServices $imageService){
+        $this->imageService = $imageService;
+    }
+
  // Create New Testimonial
-    public function createTestimonial($data){
+    public function createTestimonial($data,$image){
+        $fileName=$this->checkImage($data,$image);          #  Save The Featured Image
+        $data['profile_img']=$fileName;
         $saveTestimonial=Testimonial::create($data);
         if (!$saveTestimonial) {
             # If Testimonial Not Created
@@ -27,7 +39,7 @@ class TestimonialServices {
     }
 
     // Get All Testimonials
-    public function getAllTestimonials($data){
+    public function getAllTestimonials(){
         $testimonials=Testimonial::latest()->get();
         if (!$testimonials->count()>0) {
             # If Testimonials Empty
@@ -52,7 +64,7 @@ class TestimonialServices {
     }
 
     // Update Testimonial
-    public function updateTestimonial($id){
+    public function updateTestimonial($id,$data,$image){
         $testimonial=$this->checkTestimonial($id);
         if (!$testimonial['success']) {
             # if Testimonial Exists
@@ -60,6 +72,13 @@ class TestimonialServices {
         } else {
             # if Testimonial Exists
             $testimonialData=$testimonial['data'];
+             if (! empty($image)) {
+                # If Image Exists
+                $profile=$postData->profile_img;
+                $this->imageService->deleteFile($profile);        # Delete the Existing Featured Image
+                $fileName=$this->checkImage($data,$image);              # Save Featured Image
+                $data['profile_img']=$fileName;
+            }
             $updateTestimonial=$testimonialData->update($data);
             if (!$updateTestimonial) {
                 # If Testimonial Not Updated
@@ -80,7 +99,7 @@ class TestimonialServices {
     }
 
     // Delete  Testimonial
-    public function deleteTestimonial($data){
+    public function deleteTestimonial($id){
         $testimonial=$this->checkTestimonial($id);
         if (!$testimonial['success']) {
             # if Testimonial Exists
@@ -88,6 +107,8 @@ class TestimonialServices {
         } else {
             # if Testimonial Exists
             $testimonialData=$testimonial['data'];
+            $profile=$testimonialData->profile_img;
+            $this->imageService->deleteFile($profile);  
             $deleteTestimonial=$testimonialData->delete();
             if (!$deleteTestimonial) {
                 # If Testimonial Not Deleted
@@ -127,4 +148,10 @@ class TestimonialServices {
         }
     }
     
+       // check Image
+    protected function checkImage($data,$image){
+        $postName=$data['name'];
+        $fileName=$this->imageService->saveFile($image,$this->folder,$postName);
+        return $fileName;
+    }
 }
