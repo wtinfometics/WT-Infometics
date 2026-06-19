@@ -1,5 +1,5 @@
  <div class="pcoded-content">
-            @include('Admin.Components.error',['success'=>$success,'message'=>$message])    
+            @include('Admin.Components.error')           
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
@@ -26,7 +26,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @forelse($data as $project)
+                                                            @forelse($paginatedData as $project)
                                                             <tr>
                                                                 <th >{{ $loop->iteration }}<</th>
                                                                 <td>{{ $project->project_name }}</td>
@@ -74,7 +74,7 @@
                                                     </table>
                                                 </div>
 
-                                               @include('Admin.Components.pagination')        include Pagination
+                                               {{ $paginatedData->links('Admin.Components.pagination') }}
 
                                             </div>
                                         </div>

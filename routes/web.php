@@ -66,6 +66,15 @@ Route::middleware(['admin_auth'])->group(function () {
         Route::delete('/categories/{category_id}', [CategoryController::class, 'delete'])->name('category.delete');
     });
 
+     Route::prefix('admin')->group(function () {
+        Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
+        Route::get('/projects/create', [ProjectController::class, 'indexAddProjectPage']);
+        Route::post('/projects', [ProjectController::class, 'store'])->name('project.store');
+        Route::get('/projects/{project_id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::post('/projects/{project_id}', [ProjectController::class, 'update'])->name('project.update');
+        Route::delete('/projects/{project_id}', [ProjectController::class, 'delete'])->name('project.delete');
+    });
+
     Route::prefix('admin')->group(function () {
         Route::get('/posts', [PostController::class, 'index'])->name('post.index');
         Route::get('/posts/create', [PostController::class, 'indexAddPost']);

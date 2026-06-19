@@ -1,5 +1,6 @@
 
  <div class="pcoded-content">
+            @include('Admin.Components.error')             
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">

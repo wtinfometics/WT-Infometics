@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TestimonialValidator;
 
 use App\Services\TestimonialServices;
+use App\Helpers\PaginationHelper;
 
 class TestimonialController extends Controller
 {
@@ -53,7 +54,8 @@ class TestimonialController extends Controller
             $success = $testimonials['success'] ?? false;
             $message = $testimonials['message'] ?? '';
             $data    = $testimonials['data'] ?? [];
-            return view('Admin.Pages.testimonials',compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.testimonials',compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();

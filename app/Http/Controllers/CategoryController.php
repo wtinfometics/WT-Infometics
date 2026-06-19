@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
 use App\Services\CategoryServices;
+use App\Helpers\PaginationHelper;
 
 class CategoryController extends Controller
 {
@@ -56,7 +57,8 @@ class CategoryController extends Controller
             $success = $categories['success'] ?? false;
             $message = $categories['message'] ?? '';
             $data    = $categories['data'] ?? [];
-            return view('Admin.Pages.categories', compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.categories', compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();

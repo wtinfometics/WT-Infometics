@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\EnquiryValidator;
 
 use App\Services\EnquiryServices;
-
+use App\Helpers\PaginationHelper;
 
 class EnquiryController extends Controller
 {
@@ -50,7 +50,8 @@ class EnquiryController extends Controller
             $success = $contacts['success'] ?? false;
             $message = $contacts['message'] ?? '';
             $data    = $contacts['data'] ?? [];
-            return view('Admin.Pages.enquires', compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.enquires', compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();

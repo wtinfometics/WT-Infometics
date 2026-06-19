@@ -1,7 +1,6 @@
  @extends('Admin.Pages.main')
  @section('content')
 
-@include('Admin.Components.contacts',
-['data'=>$data,'success'=>$success,'message'=>$message])          
+@include('Admin.Components.contacts')          
 
  @endsection

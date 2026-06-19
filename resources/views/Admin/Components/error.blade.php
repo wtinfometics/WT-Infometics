@@ -1,21 +1,25 @@
-@php
-    $alertType = null;
-    $alertMessage = null;
+    {{-- Success Message --}}
+    @if (!empty($success) && $success === true && !empty($message))
+        <div class="alert alert-success auto-hide">
+            {{ $message }}
+        </div>
+    @endif
 
-    if (!empty($message)) {
-        $alertType = ($success ?? false) ? 'success' : 'danger';
-        $alertMessage = $message;
-    } elseif (session('success')) {
-        $alertType = 'success';
-        $alertMessage = session('success');
-    } elseif (session('error')) {
-        $alertType = 'danger';
-        $alertMessage = session('error');
-    }
-@endphp
+    {{-- Error Message from Controller --}}
+    @if (isset($success) && $success === false && !empty($message))
+        <div class="alert alert-danger auto-hide">
+            {{ $message }}
+        </div>
+    @endif
 
-@if($alertMessage)
-    <div class="alert alert-{{ $alertType }} auto-hide">
-        {{ $alertMessage }}
-    </div>
-@endif
+    @if (session('success'))
+        <div class="alert alert-success auto-hide">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger ">
+            {{ session('error') }}
+        </div>
+    @endif

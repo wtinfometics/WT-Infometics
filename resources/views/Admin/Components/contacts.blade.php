@@ -1,6 +1,6 @@
 
  <div class="pcoded-content">
-    @include('Admin.Components.error',['success'=>$success,'message'=>$message])        
+@include('Admin.Components.error')            
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
@@ -23,7 +23,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @forelse($data as $contact)
+                                                            @forelse($paginatedData as $contact)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                 <td> {{ $contact->subject }} </td>
@@ -51,31 +51,7 @@
                                                     </table>
                                                 </div>
 
-                                                <ul class="pagination custom-pagination justify-content-center">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">
-                                                            <i class="ti-angle-left"></i>
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">1</a>
-                                                    </li>
-
-                                                    <li class="page-item active">
-                                                        <span class="page-link">2</span>
-                                                    </li>
-
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">3</a>
-                                                    </li>
-
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">
-                                                            <i class="ti-angle-right"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                 {{ $paginatedData->links('Admin.Components.pagination') }}
 
                                             </div>
                                         </div>

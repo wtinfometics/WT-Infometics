@@ -7,6 +7,7 @@ use App\Http\Requests\ProjectValidator;
 
 use App\Services\ProjectServices;
 use App\Services\CategoryServices;
+use App\Helpers\PaginationHelper;
 
 class ProjectController extends Controller
 {
@@ -64,7 +65,8 @@ class ProjectController extends Controller
             $success = $project['success'] ?? false;
             $message = $project['message'] ?? '';
             $data    = $project['data'] ?? [];
-            return view('Admin.Pages.projects', compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.projects', compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();

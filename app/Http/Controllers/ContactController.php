@@ -7,6 +7,7 @@ use App\Http\Requests\ContactValidator;
 use Illuminate\Support\Facades\Log;
 
 use App\Services\ContactServices;
+use App\Helpers\PaginationHelper;
 
 class ContactController extends Controller
 {
@@ -43,7 +44,8 @@ class ContactController extends Controller
             $success = $contacts['success'] ?? false;
             $message = $contacts['message'] ?? '';
             $data    = $contacts['data'] ?? [];
-            return view('Admin.Pages.contacts', compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.contacts', compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();

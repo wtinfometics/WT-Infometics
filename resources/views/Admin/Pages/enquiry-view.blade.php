@@ -2,6 +2,6 @@
  @section('content')
 
  
-@include('Admin.Components.enquiry-view',['data'=>$data])        include Categories Component
+@include('Admin.Components.enquiry-view')        include Categories Component
 
  @endsection

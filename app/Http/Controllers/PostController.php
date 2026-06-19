@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 use App\Services\PostServices;
 use App\Services\CategoryServices;
+use App\Helpers\PaginationHelper;
 
 class PostController extends Controller
 {
@@ -81,7 +82,8 @@ class PostController extends Controller
             $success = $posts['success'] ?? false;
             $message = $posts['message'] ?? '';
             $data    = $posts['data'] ?? [];
-            return view('Admin.Pages.posts', compact('success', 'message', 'data'));
+            $paginatedData = PaginationHelper::paginate($data, 2);
+            return view('Admin.Pages.posts', compact('success', 'message', 'paginatedData'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();
