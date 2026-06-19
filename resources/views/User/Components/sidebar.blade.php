@@ -2,33 +2,42 @@
                 <div class="blog-sidebar"> <!-- SEARCH -->
                     <div class="sidebar-card wow fadeInUp">
                         <h5>Search Articles</h5>
-                        <div class="input-group mt-3"> <input type="text" class="form-control"
-                                placeholder="Search article..."> <button class="btn btn-primary"> <i
-                                    class="bi bi-search"></i> </button> </div>
+                        <form method="post" action="/blogs/search">
+                        @csrf
+                            <div class="input-group mt-3">
+                                <input type="text" name="search_name" class="form-control @error('search_name') is-invalid @enderror"
+                                    placeholder="Search article...">
+                                    <button type="submit" class="btn btn-primary"> <i class="bi bi-search"></i> </button>
+                                    @error('search_name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                            </div>
+                        </form>
                     </div> <!-- CATEGORIES -->
                     <div class="sidebar-card mt-4 wow fadeInUp">
                         <h5>Popular Topics</h5>
-                        <div class="topic-list"> <a href="#">AI & Automation</a> <a href="#">Web Development</a> <a
-                                href="#">Cloud Computing</a> <a href="#">SEO Marketing</a> <a href="#">Cyber
-                                Security</a> <a href="#">UI / UX Design</a> </div>
+                        <div class="topic-list">
+                            @forelse($categoryData as $category)
+                                <a href="{{ url('blogs/category/' . $category->category_id) }}">{{$category->category_name}}</a>
+                            @empty
+                                           <h2>No Topic Exists </h2> 
+                                        @endforelse
+                              </div>
                     </div> <!-- RECENT POSTS -->
                     <div class="sidebar-card mt-4 wow fadeInUp">
                         <h5>Trending Posts</h5>
-                        <div class="recent-post"> <img src="{{ asset('User/img/blog-1.jpg')}}">
+                        @forelse($PostData as $post)
+                        <div class="recent-post"> <img src="{{ !empty($post->featured_image) ? asset($post->featured_image) : '' }}" class="img-fluid" alt="{{$post->post_title}}">
                             <div>
-                                <h6> Building High Performance Websites </h6> <small> 4 Min Read </small>
+                                <h6><a href="{{ url('blogs/' . $post->post_slug) }}"> {{ \Illuminate\Support\Str::limit($post->post_title, 50, '…') }}</a> </h6> <small> {{$post->categories->category_name}}</small>
                             </div>
                         </div>
-                        <div class="recent-post"> <img src="{{ asset('User/img/blog-2.jpg')}}">
-                            <div>
-                                <h6> AI Tools Transforming Business </h6> <small> 6 Min Read </small>
-                            </div>
-                        </div>
-                        <div class="recent-post"> <img src="{{ asset('User/img/blog-3.jpg')}}">
-                            <div>
-                                <h6> SaaS Scaling Strategies </h6> <small> 8 Min Read </small>
-                            </div>
-                        </div>
+                        @empty
+                                           <h2>No Blogs Exists </h2> 
+                                        @endforelse
+                       
                     </div> <!-- NEWSLETTER -->
                     <div class="newsletter-card mt-4 wow zoomIn"> <i class="bi bi-envelope-paper-heart"></i>
                         <h4> Weekly Tech Insights </h4>

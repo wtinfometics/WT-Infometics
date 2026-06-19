@@ -3,127 +3,41 @@
         <div class="text-center mb-5 wow fadeInUp"> <span class="header-badge"> <i
                     class="bi bi-journal-richtext me-2"></i> Knowledge Hub </span>
             <h1 class="display-4 fw-bold mt-4"> Insights, Innovation & <span class="text-gradient"> Digital Growth
-                </span> </h1>
-            <p class="lead text-muted col-lg-8 mx-auto"> Explore industry-leading insights, web technologies, AI
-                innovations, software development strategies, digital marketing trends, and business growth ideas. </p>
+          
         </div>
+        @if($PostData->count()>0)
         <div class="row g-5"> <!-- BLOGS -->
             <div class="col-lg-8"> <!-- FEATURED ARTICLE -->
-
                 <div class="row g-4 mt-3">
+                    @forelse($paginatedData as $post)
                     <div class="col-md-6 wow fadeInUp">
                         <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-1.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Web Development </span> </div>
+                            <div class="blog-thumb"> <img src="{{ !empty($post->featured_image) ? asset($post->featured_image) : '' }}" class="img-fluid" alt="{{$post->post_title}}"> <span
+                                    class="blog-category">{{$post->categories->category_name}} </span> </div>
                             <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> John Carter </span> <span>
-                                        <i class="bi bi-clock"></i> 5 Min </span> </div>
-                                <h4> Top Frontend Technologies Every Developer Should Master in 2026 </h4>
-                                <p> Discover the latest frameworks, performance strategies and development trends
-                                    shaping modern web experiences. </p> <a href="#"> Read More <i
+                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Admin</span> <span>
+                                        <i class="bi bi-clock"></i> {{$post->created_at->format('d F Y') }} </span> </div>
+                                <h4><a href="{{ url('blogs/' . $post->post_slug) }}"> {{ \Illuminate\Support\Str::limit($post->post_title, 75, '…') }} </a></h4>
+                                <p>{{ \Illuminate\Support\Str::limit($post->short_description, 200, '…') }}  </p> <a href="#"> Read More <i
                                         class="bi bi-arrow-right"></i> </a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <article class="blog-card">
-                            <div class="blog-thumb"> <img src="{{ asset('User/img/blog-2.jpg')}}" class="img-fluid"> <span
-                                    class="blog-category"> Cyber Security </span> </div>
-                            <div class="blog-body">
-                                <div class="blog-info"> <span> <i class="bi bi-person"></i> Sarah Wilson </span> <span>
-                                        <i class="bi bi-clock"></i> 7 Min </span> </div>
-                                <h4> Essential Security Practices Every Business Website Must Follow </h4>
-                                <p> Protect your customers and data with modern security strategies and best practices.
-                                </p> <a href="#"> Read More <i class="bi bi-arrow-right"></i> </a>
-                            </div>
-                        </article>
-                    </div>
+                    @empty
+                                           <h2>No Blogs Exists </h2> 
+                                        @endforelse
+                   
                 </div> <!-- PAGINATION -->
                 <!-- Pagination Starts -->
-                @include('User.Components.pagination')
+                 {{ $paginatedData->links('User.Components.pagination') }}
            <!-- Pagination Ends -->
             </div> <!-- SIDEBAR -->
            <!-- Side Bar Starts -->
                 @include('User.Components.sidebar')
            <!-- Side Bar Ends -->
         </div>
+        @else
+        <h2>No Blogs Exists </h2> 
+        @endif
     </div>
     <!-- Blog Section Ends -->

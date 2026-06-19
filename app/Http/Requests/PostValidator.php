@@ -14,10 +14,11 @@ class PostValidator extends Request
         );
     }
 
-    public static function rules(string $routeName,?int $id):array{
+    public static function rules(string $routeName):array{
         return match ($routeName) {
             'post.store'  => self::createRules() ,
             'post.update' => self:: updateRules($id),
+            'blogs.search' => self:: searchRules(),
             default => [],
         };
     }
@@ -36,7 +37,7 @@ class PostValidator extends Request
         ];
     }
 
-    public static function updateRules(?int $id):array{
+    public static function updateRules():array{
            return [
             'post_title'=>'required|string',
             'category_id' => 'required|exists:categories,category_id',
@@ -47,6 +48,12 @@ class PostValidator extends Request
             'meta_description'=>'required|string',
             'keywords'=>'required|string',
             'status'=>'required|string'
+        ];
+    }
+
+    public static function searchRules():array{
+           return [
+            'search_name'=>'required|string'
         ];
     }
 }

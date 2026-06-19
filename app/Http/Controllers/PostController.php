@@ -162,4 +162,81 @@ class PostController extends Controller
             return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
+
+    // Index Blogs Page
+    public function blogs(){
+        try {
+            //code...
+            $categories=$this->categoryService->getAllCategories();
+            $posts=$this->postService->getAllPosts();
+            $PostData    = $posts['data'] ?? [];
+            $categoryData= $categories['data'] ?? [];
+            $paginatedData = PaginationHelper::paginate($PostData, 10);
+            return view('User.blogs', compact('PostData','categoryData','paginatedData'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
+    }
+
+    // Display Blog
+    public function blogsDetails($post_slug){
+        try {
+            //code...
+            $categories=$this->categoryService->getAllCategories();
+            $post=$this->postService->getPostDetails($post_slug);
+            $posts=$this->postService->getAllPosts();
+            $data    = $post['data'] ?? [];;
+            $PostData    = $posts['data'] ?? [];
+            $categoryData= $categories['data'] ?? [];
+            return view('User.blog-details', compact( 'data','categoryData','PostData'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
+    }
+
+    // Search Post
+    public function searchPost(Request $request){
+        try {
+            //code...
+            $validate=PostValidator::validate($request,$request->route()->getName());
+                if ($validate->fails()) {
+                    # If Input Validation Fails
+                    return redirect()->back()->withErrors($validate)->withInput();
+                } else {
+                    $data=$validate->validated();
+                    $search=$data['search_name'];
+                    $categories=$this->categoryService->getAllCategories();
+                    $posts = $this->postService->postSSearch($search);
+                    $AllPosts=$this->postService->getAllPosts();
+                    $PostAll    = $posts['data'] ?? [];
+                    $PostData    = $AllPosts['data'] ?? [];
+                    $categoryData= $categories['data'] ?? [];
+                    $paginatedData = PaginationHelper::paginate($PostAll, 10);
+                    return view('User.blogs', compact('PostData','categoryData','paginatedData'));
+                }
+            } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
+    }
+
+    // Get Post ByCategory
+    public function postByCategory($category_id){
+        try {
+            //code...
+            $categories=$this->categoryService->getAllCategories();
+            $postsByCategory = $this->postService->getPostByCategory($category_id);
+            $AllPosts=$this->postService->getAllPosts();
+            $PostAll    = $postsByCategory['data'] ?? [];
+            $PostData    = $AllPosts['data'] ?? [];
+            $categoryData= $categories['data'] ?? [];
+            $paginatedData = PaginationHelper::paginate($PostAll, 10);
+            return view('User.blogs', compact('PostData','categoryData','paginatedData'));
+        } catch (\Throwable $th) {
+            //throw $th;
+             return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
+    }
 }

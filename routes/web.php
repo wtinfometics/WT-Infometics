@@ -27,9 +27,11 @@ Route::get('/services', function () {
     return view('User.services');
 });
 
-Route::get('/blogs', function () {
-    return view('User.blogs');
-});
+
+ Route::get('/blogs', [PostController::class, 'blogs'])->name('blogs.index');
+  Route::post('/blogs/search', [PostController::class, 'searchPost'])->name('blogs.search');
+    Route::get('/blogs/category/{category_id}', [PostController::class, 'postByCategory'])->name('blogs.category');
+  Route::get('/blogs/{post_slug}', [PostController::class, 'blogsDetails'])->name('blogs.details');
 
 Route::get('/blog-details', function () {
     return view('User.blog-details');

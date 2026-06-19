@@ -189,9 +189,52 @@ class PostServices {
     }
 
     // get Post  All Data
-    public function getPostDetails($id){
-        $this->postViewService->addPostView($id);
-        $post-Post::with(['categories','postMeta','postView'])->find($id);
+    public function getPostDetails($post_slug){
+        $post = Post::with(['categories', 'postMeta', 'postView'])->where('post_slug', $post_slug)->first();
+        if (!$post) {
+            # if Post Exists
+            return [
+                'success'=>false,
+                'message'=>'This Post Not Exists',
+                'status'=>404
+            ];
+        } else {
+            # if Post Exists
+            $id=$post['post_id'];
+            $this->postViewService->addPostView($id);
+            return [
+                'success'=>true,
+                'data'=>$post,
+                'status'=>200
+            ];
+        }
+    }
+
+    // Search Post
+    public function postSSearch($search){
+        $posts = Post::with('categories')->where('post_title', 'LIKE', "%{$search }%")
+                ->orWhere('description', 'LIKE', "%{$search }%")
+                ->get();
+            if (!$posts) {
+            # if Post Exists
+            return [
+                'success'=>false,
+                'message'=>'This Post Not Exists',
+                'status'=>404
+            ];
+        } else {
+            # if Post Exists
+            return [
+                'success'=>true,
+                'data'=>$posts,
+                'status'=>200
+            ];
+        }
+    }
+
+    // get Product By Category
+    public function getPostByCategory($category_id){
+        $post = Post::with('categories')->where('category_id',$category_id)->get();
         if (!$post) {
             # if Post Exists
             return [

@@ -12,7 +12,7 @@
             <div class="row g-4"> <!-- Featured Blog -->
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
                     <div class="featured-blog">
-                        <div class="blog-image"> <img src="{{ asset('User/img/blog-1.jpg')}}" alt=""> <span class="category"> SEO
+                        <div class="blog-image"> <img src="{{ asset('User/img/blog-1.jpg')}}" alt=""> <span class="category"> 
                                 Strategy </span> </div>
                         <div class="blog-content">
                             <div class="blog-meta"> <span> <i class="far fa-user"></i> Admin </span> <span> <i
