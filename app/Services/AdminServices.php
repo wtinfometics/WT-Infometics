@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use App\Models\Admin;
 use App\Models\Otp;
 
+use App\Mail\OtpMail;
+
 class AdminServices {
 
     // Register Admin
@@ -50,7 +52,7 @@ class AdminServices {
             # If Admin Exists
             $adminData=$admin['data'];
             $updateAdmin=$adminData->update($data);
-            if (!$register) {
+            if (!$updateAdmin) {
                 # If Admin Not Updated
                 return [
                     'success'=>false,
@@ -197,7 +199,7 @@ class AdminServices {
 
     // Forget Password
     public function forgetPassword($email){
-        $admin=$this->checkAdmin(null,$mail);
+        $admin=$this->checkAdmin(null,$email);
         if (!$admin['success']) {
             # If Admin Not Exists
             return  $admin;
@@ -263,7 +265,8 @@ class AdminServices {
             # if Admin Exists
            return $admin;
         } else {
-            $data['password'] = $this->encryptPassword($data['password']);  # Update Encrypted Password
+            $password= $this->encryptPassword($data['password']);  # Update Encrypted Password
+            $data['password']=$password;
             $adminData=$admin['data'];
             $admin_id=$adminData->admin_id;
             $reset=$this->updateAdmin($admin_id,$data);
@@ -280,15 +283,14 @@ class AdminServices {
 
     // Update Password
     public function updatePassword($data){
-        $email=Session::get('admin_auth.email');
-        $admin=$this->checkAdmin(null,$email);
+        $admin_id=Session::get('admin_auth.admin_id');
+        $admin=$this->checkAdmin($admin_id,null);
         if (!$admin['success']) {
             # if Admin Exists
            return $admin;
         } else {
-            $data['password'] = $this->encryptPassword($data['password']);  # Update Encrypted Password
-            $adminData=$admin['data'];
-            $admin_id=$adminData->admin_id;
+            $password= $this->encryptPassword($data['password']);  # Update Encrypted Password
+            $data['password']=$password;
             $updatePassword=$this->updateAdmin($admin_id,$data);
             if (!$updatePassword['success']) {
                 # if Password  Not Updated  
@@ -303,17 +305,18 @@ class AdminServices {
 
     // Generate  OTP
     public function generateOTP($email){
-         $otp = rand(100000, 999999);
+        $otp = rand(100000 , 999999);
         $currentTime = Carbon::now();
         $expTime = $currentTime->copy()->addMinutes(3);
 
-        $saveOTP = Otp::updateOrCreate(
-            ['email' => $email],
+        $saveOTP=Otp::updateOrCreate(
+            ['email'=>$email],
             [
-                'otp' => $otp,
-                'expires_at' => $expTime
+                'otp'=>$otp,
+                'expires_at'=>$expTime
             ]
-        );
+            );
+  
         if ($saveOTP) {
             # code...
             $this->sendMail($email,$otp);

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id('otp_id');
-            $table->string('otp', 6);
-            $table->strinG('email');
-            $table->dateTime('expires_at'); 
+            $table->string('email')->unique();
+            $table->integer('otp');
+            $table->timestamp('expires_at');
             $table->timestamps();
         });
     }

@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Otp extends Model
 {
-      //  Model Name
-    protected $table="otps";                
+    //
+     protected $table="otps";  
 
-    // Modal data
-    protected $fillable=[
-        'otp',
+
+    protected $fillable = [
         'email',
-        'expires_at',
+        'otp',
+        'expires_at'
     ];
 
-    // Primary Key
     protected$primaryKey="otp_id";
+
 }

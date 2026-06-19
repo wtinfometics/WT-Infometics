@@ -23,7 +23,8 @@ class TestimonialController extends Controller
 
     // Store Testimonial
     public function Store(Request $request){
-     
+        try {
+            //code...
              $validate=TestimonialValidator::validate($request,$request->route()->getName());
             if ($validate->fails()) {
                 # If Input Validation Fails
@@ -38,7 +39,10 @@ class TestimonialController extends Controller
                 }
                 return redirect()->back()->with('error', $saveTestimonial['message'])->withInput();
             }
-        
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
     }
 
     // Index Testimonial
@@ -52,6 +56,7 @@ class TestimonialController extends Controller
             return view('Admin.Pages.testimonials',compact('success', 'message', 'data'));
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
@@ -66,12 +71,14 @@ class TestimonialController extends Controller
             return view('Admin.Pages.add-testimonial',compact('success', 'message', 'data'));
         } catch (\Throwable $th) {
             //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
         }
     }
 
     // Update Testimonial
     public function update(Request $request,$testimonial_id){
-        
+        try {
+            //code... 
             $validate=TestimonialValidator::validate($request,$request->route()->getName());
             if ($validate->fails()) {
                 # If Input Validation Fails
@@ -86,12 +93,16 @@ class TestimonialController extends Controller
                 }
                 return redirect()->back()->with('error', $updateTestimonial['message'])->withInput();
             }
-        
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
     }
 
     // Delete Testimonial
     public function delete($testimonial_id){
-     
+        try {
+            //code...
             $deleteTestimonial = $this->testimonialService->deleteTestimonial($testimonial_id);
             $success = $deleteTestimonial['success'] ?? false;
             $message = $deleteTestimonial['message'] ?? '';
@@ -100,6 +111,9 @@ class TestimonialController extends Controller
             } else {
                 return redirect()->back()->with('error',$message)->withInput();
             }
-       
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
     }
 }

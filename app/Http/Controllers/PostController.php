@@ -22,9 +22,15 @@ class PostController extends Controller
 
     // Index Add Post Page
     public function indexAddPost(){
-        $categories=$this->categoryService->getAllCategories();
-        $categoryData= $categories['data'] ?? [];
-        return view('Admin.Pages.add-post',compact('categoryData'));
+        try {
+            //code...
+            $categories=$this->categoryService->getAllCategories();
+            $categoryData= $categories['data'] ?? [];
+            return view('Admin.Pages.add-post',compact('categoryData'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
     }
 
     // Store post

@@ -12,6 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+        $middleware->alias([
+            'admin_auth' => \App\Http\Middleware\AdminAuth::class,
+            'reset' => \App\Http\Middleware\Reset::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

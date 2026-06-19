@@ -21,9 +21,15 @@ class ProjectController extends Controller
 
     // Index Add Project Page
     public function indexAddProjectPage(){
-        $categories=$this->categoryService->getAllCategories();
-        $categoryData    = $categories['data'] ?? [];
-        return view('Admin.Pages.add-project',compact('categoryData'));
+        try {
+            //code...
+            $categories=$this->categoryService->getAllCategories();
+            $categoryData    = $categories['data'] ?? [];
+            return view('Admin.Pages.add-project',compact('categoryData'));
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage())->withInput();
+        }
     }
 
     // Store Project

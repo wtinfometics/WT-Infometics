@@ -8,6 +8,8 @@ use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('User.index');
@@ -33,32 +35,15 @@ Route::get('/blog-details', function () {
     return view('User.blog-details');
 });
 
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+    Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
+    // Admin Protected Route Starts
+Route::middleware(['admin_auth'])->group(function () {
 
-//Admin Route
-Route::get('/dashboard', function () {
-    return view('Admin.Pages.dashboard');
-});
-
-Route::get('/profile', function () {
-    return view('Admin.Pages.profile');
-});
-
-
-
-    Route::post('/category', [CategoryController::class, 'store'])
-    ->name('category.store');
-
-Route::post('/category/update/{id}', [CategoryController::class, 'update'])
-    ->name('category.update');
-
-    Route::post('/contact', [ContactController::class, 'store'])
-    ->name('contact.store');
-
-
-
-    Route::post('/enquiry', [EnquiryController::class, 'store'])
-    ->name('enquiry.store');
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+    });
 
     Route::prefix('admin')->group(function () {
         Route::get('/contacts', [ContactController::class, 'index']);
@@ -98,3 +83,48 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update'])
         Route::post('/testimonials/{testimonial_id}', [TestimonialController::class, 'update'])->name('testimonial.update');
         Route::delete('/testimonials/{testimonial_id}', [TestimonialController::class, 'delete'])->name('testimonial.delete');
     });
+
+    Route::prefix('admin')->group(function () {
+       Route::get('/logout', [AdminController::class, 'logout']);
+       Route::get('/profile', [AdminController::class, 'profile']);
+       Route::post('/profile/update', [AdminController::class, 'updateAdmin'])->name('admin.update');
+       Route::post('/password/update', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
+    });
+        
+});
+// Admin Protected Route Ends
+
+   // Reset Password Route Starts
+    Route::middleware(['reset'])->group(function () {
+
+        Route::get('/verify', function () {
+            return view('Admin.Pages.verify');
+        });
+
+        Route::get('/reset', function () {
+            return view('Admin.Pages.reset');
+        });
+
+        Route::post('/verify', [AdminController::class, 'verify'])->name('admin.verify');
+        Route::post('/reset', [AdminController::class, 'reset'])->name('admin.reset');
+
+    });
+   // Reset Password Route Starts
+
+
+    Route::get('/register', function () {
+        return view('Admin.Pages.register');
+    });
+
+    Route::get('/login', function () {
+        return view('Admin.Pages.login');
+    });
+
+    Route::get('/forget', function () {
+        return view('Admin.Pages.forget');
+    });
+
+    Route::post('/register', [AdminController::class, 'register'])->name('admin.register');
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    Route::post('/forget', [AdminController::class, 'forget'])->name('admin.forget');
+ 
