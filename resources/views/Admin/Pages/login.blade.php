@@ -3,6 +3,7 @@
 
 <head>
     <title>GURU Able - Free Lite Admin Template </title>
+    <meta name="robots" content="noindex, nofollow">
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

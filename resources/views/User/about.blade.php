@@ -2,9 +2,9 @@
 
 <!-- Page Meta Data Starts -->
 @section('metadata')
-    <title>Electro - Electronics Website Template</title>
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>About WT Infometics | Web Development & SEO Experts</title>
+    <meta content="about web development company, SEO specialists India, digital marketing team, website designers, local SEO professionals, WT Infometics team" name="keywords">
+    <meta content="WT Infometics is focused on building modern websites and delivering SEO strategies that help businesses grow their digital presence." name="description">
 @endsection
 <!-- Page Meta Data Ends -->
 
