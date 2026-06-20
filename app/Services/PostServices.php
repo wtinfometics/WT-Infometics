@@ -251,4 +251,26 @@ class PostServices {
             ];
         }
     }
+
+    // Generate post Sitemap
+    public function generatePostSitemap(){
+      $posts = Post::select('post_slug', 'updated_at')
+    ->where('status', 'published')
+    ->get();
+    if ($post->count()>0) {
+            # if Post Exists
+            return [
+                'success'=>false,
+                'message'=>'This Post Not Exists',
+                'status'=>404
+            ];
+        } else {
+            # if Post Exists
+            return [
+                'success'=>true,
+                'data'=>$post,
+                'status'=>200
+            ];
+        }
+    }
 }

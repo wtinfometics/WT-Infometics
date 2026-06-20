@@ -5,6 +5,49 @@
     <title>WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth</title>
     <meta content="web development agency India, SEO company, local SEO experts, website design services, digital marketing agency, custom website development, WT Infometics" name="keywords">
     <meta content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth." name="description">
+
+    <!-- Open Graph Meta Tags -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WT Infometics">
+<meta property="og:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
+<meta property="og:description" content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
+<meta property="og:url" content="https://wtinfometics.com">
+<meta property="og:image" content="https://wtinfometics.com/logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card Meta Tags -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
+<meta name="twitter:description" content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
+<meta name="twitter:image" content="https://wtinfometics.com/logo.png">
+<meta name="twitter:site" content="@wtinfometics">
+<meta name="twitter:creator" content="@wtinfometics">
+
+  <script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    '@id' => url('/') . '/#organization',
+    'name' => 'WT Infometics',
+    'url' => url('/'),
+    'logo' => asset('logo.png'),
+    'image' => asset('assets/img/logo.png'),
+    'description' => 'WT Infometics provides website development, SEO, local SEO, and digital marketing services to help businesses improve their online presence and generate more leads.',
+    'email' => 'info@wtinfometics.com',
+    'telephone' => '+919019049147',
+    'sameAs' => [
+        'https://www.facebook.com/profile.php?id=61552061820126',
+        'https://www.instagram.com/wt_infometics/',
+        'https://www.youtube.com/@WTInfometics',
+        'https://www.linkedin.com/company/wtinfometics/'
+    ]
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+
 @endsection
 <!-- Page Meta Data Ends -->
 

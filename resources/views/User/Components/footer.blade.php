@@ -69,9 +69,21 @@
                             </div>
                         </div>
                     </div> <!-- Social Icons -->
-                    <div class="social-links"> <a href="#"> <i class="fab fa-facebook-f"></i> </a> <a href="#"> <i
-                                class="fab fa-instagram"></i> </a> <a href="#"> <i class="fab fa-linkedin-in"></i> </a>
-                        <a href="#"> <i class="fab fa-youtube"></i> </a> <a href="#"> <i class="fab fa-whatsapp"></i>
+                    <div class="social-links">
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=61552061820126"> 
+                            <i class="fab fa-facebook-f"></i>
+                         </a>
+                        <a target="_blank" href="https://www.instagram.com/wt_infometics/"> 
+                            <i class="fab fa-instagram"></i>
+                         </a>
+                        <a target="_blank" href="https://www.linkedin.com/company/wtinfometics/?viewAsMember=true"> 
+                            <i class="fab fa-linkedin-in"></i>
+                         </a>
+                        <a target="_blank" href="https://www.youtube.com/@WTInfometics"> 
+                            <i class="fab fa-youtube"></i>
+                         </a> 
+                        <a target="_blank" href="https://wa.me/919019049147"> 
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>

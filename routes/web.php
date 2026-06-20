@@ -10,10 +10,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 
-    Route::get('/', function () {
-        return view('User.index');
-    });
+ Route::get('/', [HomeController::class, 'index']);
+  Route::get('/sitemap.xml', [HomeController::class, 'generateSiteMap']);
 
     Route::get('/about', function () {
         return view('User.about');
@@ -27,15 +27,12 @@ use App\Http\Controllers\DashboardController;
         return view('User.services');
     });
 
-
     Route::get('/blogs', [PostController::class, 'blogs'])->name('blogs.index');
     Route::post('/blogs/search', [PostController::class, 'searchPost'])->name('blogs.search');
     Route::get('/blogs/category/{category_id}', [PostController::class, 'postByCategory'])->name('blogs.category');
     Route::get('/blogs/{post_slug}', [PostController::class, 'blogsDetails'])->name('blogs.details');
 
-    Route::get('/blog-details', function () {
-        return view('User.blog-details');
-    });
+ 
 
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
@@ -103,7 +100,7 @@ use App\Http\Controllers\DashboardController;
         });
             
     });
-// Admin Protected Route Ends
+    // Admin Protected Route Ends
 
    // Reset Password Route Starts
     Route::middleware(['reset'])->group(function () {
@@ -121,7 +118,6 @@ use App\Http\Controllers\DashboardController;
 
     });
    // Reset Password Route Starts
-
 
     Route::get('/register', function () {
         return view('Admin.Pages.register');

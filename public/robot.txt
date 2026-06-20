@@ -9,4 +9,4 @@ Disallow: /reset
 
 Allow: /
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://wtinfometics.com/sitemap.xml

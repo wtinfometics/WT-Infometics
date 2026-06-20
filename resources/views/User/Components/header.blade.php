@@ -1,4 +1,5 @@
-    <!-- Loader / Spinner Start -->
+
+<!-- Loader / Spinner Start -->
     <div id="spinner" class="loader-wrapper">
         <div class="loader-content wow zoomIn">
             <!-- Logo / Brand -->
@@ -35,11 +36,21 @@
                 </div>
                 <!-- Right Social -->
                 <div class="topbar-right d-flex gap-2">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=61552061820126">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/wt_infometics/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a target="_blank" href="https://www.linkedin.com/company/wtinfometics/?viewAsMember=true">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/@WTInfometics">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a target="_blank" href="https://wa.me/919019049147">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
         </div>
