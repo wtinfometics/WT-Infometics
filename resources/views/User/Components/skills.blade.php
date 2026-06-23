@@ -24,19 +24,19 @@
                         <div class="col-lg-4 col-md-6 wow zoomIn">
                             <div class="skill-card"> <i class="fab fa-react"></i>
                                 <h5>React JS</h5>
-                                <p>Modern UI development with fast performance.</p>
+                                <p>Build fast, interactive, and scalable user interfaces with modern component-based architecture</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow zoomIn">
                             <div class="skill-card"> <i class="fab fa-js"></i>
                                 <h5>Next JS</h5>
-                                <p>SEO-friendly React framework for web apps.</p>
+                                <p>Create high-performance web applications with SSR, SEO optimization, and lightning-fast loading </p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow zoomIn">
-                            <div class="skill-card"> <i class="fab fa-angular"></i>
-                                <h5>Angular</h5>
-                                <p>Powerful framework for scalable applications.</p>
+                            <div class="skill-card"> <i class="fab fa-bootstrap"></i>
+                                <h5>HTML</h5>
+                                <p>Develop clean, semantic, and responsive web page structures for modern digital experiences</p>
                             </div>
                         </div>
                     </div>
@@ -46,19 +46,19 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fab fa-laravel"></i>
                                 <h5>Laravel</h5>
-                                <p>Secure PHP framework for web applications.</p>
+                                <p>Create robust, secure, and feature-rich web applications using the PHP Laravel framework.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fab fa-node"></i>
                                 <h5>Node JS</h5>
-                                <p>Fast and scalable backend runtime environment.</p>
+                                <p>Build powerful server-side applications with scalable and high-performance JavaScript runtime</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fas fa-server"></i>
                                 <h5>Express JS</h5>
-                                <p>Lightweight framework for APIs and backend services.</p>
+                                <p>LDevelop secure and efficient APIs and backend systems with lightweight Node.js frameworks</p>
                             </div>
                         </div>
                     </div>
@@ -68,19 +68,19 @@
                         <div class="col-lg-4 col-md-6 wow zoomIn">
                             <div class="skill-card"> <i class="fab fa-facebook"></i>
                                 <h5>Facebook Ads</h5>
-                                <p>Targeted ads to grow brand awareness & leads.</p>
+                                <p>Reach the right audience and maximize ROI with Facebook and Instagram advertising solutions</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow zoomIn">
                             <div class="skill-card"> <i class="fab fa-google"></i>
                                 <h5>Google Adds </h5>
-                                <p>Video marketing for engagement and conversions.</p>
+                                <p>Drive targeted traffic, leads, and sales through strategic Google advertising campaigns.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow zoomIn">
                             <div class="skill-card"> <i class="fas fa-share-alt"></i>
                                 <h5>Social Media Optimization</h5>
-                                <p>Increase reach and brand visibility organically.</p>
+                                <p>Improve search rankings, organic visibility, and website traffic with proven SEO strategies.</p>
                             </div>
                         </div>
                     </div>
@@ -90,19 +90,19 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fab fa-google"></i>
                                 <h5>Google Analytics</h5>
-                                <p>Track performance and user behavior insights.</p>
+                                <p>Track user behavior and measure performance with data-driven analytics insights</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fas fa-map-marker-alt"></i>
                                 <h5>Google Business Profile</h5>
-                                <p>Boost local visibility and map rankings.</p>
+                                <p>Enhance local search visibility, Google Business Profile rankings, and customer reach</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp">
                             <div class="skill-card"> <i class="fab fa-wordpress"></i>
                                 <h5>WordPress</h5>
-                                <p>Easy-to-manage CMS for business websites.</p>
+                                <p>Build customizable, SEO-friendly, and easy-to-manage websites for businesses of all sizes.</p>
                             </div>
                         </div>
                     </div>

@@ -40,7 +40,7 @@ body {
 .portfolio-section .portfolio-card .portfolio-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15));
+  background: linear-gradient(to top, rgb(3, 11, 14) 3%, rgb(3, 11, 14) 20%, rgba(0, 0, 0, 0.15) 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@ body {
   transition: 0.4s;
 }
 .portfolio-section .portfolio-card .portfolio-overlay span {
-  color: #0dcaf0;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -57,9 +57,11 @@ body {
 .portfolio-section .portfolio-card .portfolio-overlay h4 {
   margin: 10px 0;
   font-weight: 700;
+  color: #06A3DA;
 }
 .portfolio-section .portfolio-card .portfolio-overlay p {
   opacity: 0.9;
+  color: #e4e4e4;
 }
 .portfolio-section .portfolio-card .portfolio-stats {
   display: flex;
@@ -68,7 +70,7 @@ body {
 }
 .portfolio-section .portfolio-card .portfolio-stats h5 {
   margin: 0;
-  color: #0dcaf0;
+  color: #06A3DA;
   font-weight: 700;
 }
 .portfolio-section .portfolio-card .portfolio-stats small {

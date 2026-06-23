@@ -83,7 +83,7 @@
                 <!-- Right Image -->
                 <div class="col-lg-6 wow zoomIn" data-wow-delay="0.3s">
                     <div class="about-image h-100">
-                        <img src="{{ asset('User/img/about2.jpg')}}" alt="About Us" class="img-fluid rounded-4 shadow-lg">
+                        <img src="{{ asset('User/img/abt1.jpg')}}" alt="About Us" class="img-fluid rounded-4 shadow-lg">
                     </div>
                 </div>
             </div>
@@ -91,13 +91,13 @@
             <div class="row g-4 mt-5 text-center">
                 <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="stat-box">
-                        <h2>100+</h2>
+                        <h2>30+</h2>
                         <p>Projects Completed</p>
                     </div>
                 </div>
                 <div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="stat-box">
-                        <h2>50+</h2>
+                        <h2>23+</h2>
                         <p>Happy Clients</p>
                     </div>
                 </div>

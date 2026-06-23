@@ -1,9 +1,9 @@
- <!-- Hero Carousel Start -->
+<!-- Hero Carousel Start -->
     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active">
-                <img src="{{ asset('User/img/carousel-1.jpg') }}" class="w-100" alt="Digital Marketing">
+                <img src="{{ asset('User/img/img7.webp')}}" class="w-100" alt="Digital Marketing">
                 <div class="carousel-overlay"></div>
                 <div class="carousel-caption">
                     <div class="container">
@@ -26,7 +26,7 @@
             </div>
             <!-- Slide 2 -->
             <div class="carousel-item">
-                <img src="{{ asset('User/img/carousel-2.jpg') }}" class="w-100" alt="Marketing Growth">
+                <img src="{{ asset('User/img/img5.webp')}}" class="w-100" alt="Marketing Growth">
                 <div class="carousel-overlay"></div>
                 <div class="carousel-caption">
                     <div class="container">
@@ -48,12 +48,15 @@
                 </div>
             </div>
         </div>
+
         <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
+
     </div>
     <!-- Hero Carousel End -->

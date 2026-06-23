@@ -27,6 +27,7 @@
 <meta name="twitter:site" content="@wtinfometics">
 <meta name="twitter:creator" content="@wtinfometics">
 
+<!-- Organization schema -->
   <script type="application/ld+json">
 {!! json_encode([
     '@context' => 'https://schema.org',
@@ -48,6 +49,47 @@
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
 
+<!-- Local Business schema --><script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'ProfessionalService',
+    '@id' => url('/') . '/#professionalservice',
+    'name' => 'WT Infometics',
+    'url' => url('/'),
+    'image' => asset('assets/img/logo.png'),
+    'description' => 'WT Infometics offers Web Development, SEO, Local SEO, Social Media Marketing, E-Commerce Management, Google Ads, Meta Ads, and Digital Marketing services.',
+    'telephone' => '+919019049147',
+    'email' => 'info@wtinfometics.com',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'addressLocality' => 'Kumta',
+        'postalCode' => '581343',
+        'addressCountry' => 'IN'
+    ],
+    'openingHoursSpecification' => [
+        [
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday'
+            ],
+            'opens' => '09:30',
+            'closes' => '18:00'
+        ]
+    ],
+    'sameAs' => [
+        'https://www.facebook.com/profile.php?id=61552061820126',
+        'https://www.instagram.com/wt_infometics/',
+        'https://www.youtube.com/@WTInfometics',
+        'https://www.linkedin.com/company/wtinfometics/'
+    ]
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
+
 @endsection
 <!-- Page Meta Data Ends -->
 
@@ -60,7 +102,7 @@
  @include('User.Components.portfolio')          <!-- Index Portfolios -->
  @include('User.Components.work-flow')          <!-- Index Work -Flow -->
  @include('User.Components.service-index')      <!-- Index Service For Index Page -->
- @include('User.Components.testimonials')       <!-- Index Testimonials  -->
+
  @include('User.Components.quote')              <!-- Index Quote -->
  @include('User.Components.blogs-index')        <!-- Index Blogs For Index Page -->
       

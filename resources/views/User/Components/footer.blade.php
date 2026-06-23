@@ -25,35 +25,34 @@
                 <div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h4 class="footer-title"> Services </h4>
                     <ul class="footer-links">
-                        <li><a href="#">Web Designing</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">SEO Services</a></li>
-                        <li><a href="#">Local SEO</a></li>
-                        <li><a href="#">Google Ads</a></li>
-                        <li><a href="#">Social Media Marketing</a></li>
+                        <li><a >Web Designing</a></li>
+                        <li><a >Web Development</a></li>
+                        <li><a >SEO Services</a></li>
+                        <li><a >Local SEO</a></li>
+                        <li><a >Google Ads</a></li>
+                        <li><a >Social Media Marketing</a></li>
                     </ul>
                 </div> <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <h4 class="footer-title"> Quick Links </h4>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/blogs">Blogs</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div> <!-- Contact -->
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
                     <h4 class="footer-title"> Contact Information </h4>
                     <div class="contact-box">
-                        <div class="contact-item">
+                        <!-- <div class="contact-item">
                             <div class="icon"> <i class="fas fa-map-marker-alt"></i> </div>
                             <div>
                                 <h6>Office Address</h6>
                                 <p>Kumta, Karnataka, India</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="contact-item">
                             <div class="icon"> <i class="fas fa-phone-alt"></i> </div>
                             <div>

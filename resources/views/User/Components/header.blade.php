@@ -22,12 +22,8 @@
                 <!-- Left Info -->
                 <div class="topbar-left d-flex gap-4">
                     <div>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kumta, Karnataka, India</span>
-                    </div>
-                    <div>
                         <i class="fas fa-phone-alt"></i>
-                        <span>+91 90190 49147</span>
+                        <span>+91 9019049147</span>
                     </div>
                     <div>
                         <i class="fas fa-envelope"></i>

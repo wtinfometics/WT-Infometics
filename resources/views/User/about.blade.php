@@ -15,7 +15,6 @@
  @include('User.Components.about')                                      <!-- Index About -->
  @include('User.Components.work-flow')                                  <!-- Index Work Flow -->
  @include('User.Components.faq')                                        <!-- Index FAQ -->
- @include('User.Components.testimonials')                               <!-- Index Testimonials -->
 
 @endsection
 <!-- Page Content Ends -->

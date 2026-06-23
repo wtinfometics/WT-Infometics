@@ -14,25 +14,25 @@
             </div>
             <!-- CONTACT INFO CARDS -->
             <div class="row g-4 mb-5">
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="contact-card">
                         <div class="icon-box">
                             <i class="fa fa-phone-alt"></i>
                         </div>
                         <h5>Call to ask any question</h5>
-                        <h4>+012 345 6789</h4>
+                        <h4>+91 901 904 9147</h4>
                     </div>
                 </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="contact-card">
                         <div class="icon-box">
                             <i class="fa fa-envelope-open"></i>
                         </div>
                         <h5>Email to get free quote</h5>
-                        <h4>info@example.com</h4>
+                        <h4>info@wtinfometics.com</h4>
                     </div>
                 </div>
-                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-4 d-none wow fadeInUp" data-wow-delay="0.5s">
                     <div class="contact-card">
                         <div class="icon-box">
                             <i class="fa fa-map-marker-alt"></i>
