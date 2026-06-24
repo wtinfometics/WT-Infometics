@@ -1,0 +1,123 @@
+# WT Infometics
+
+WT Infometics is a digital marketing and web solutions company specializing in website design, web development, search engine optimization (SEO), local SEO, social media marketing, online advertising, and e-commerce platform management.
+
+## About
+
+WT Infometics helps businesses establish, grow, and optimize their online presence through modern digital marketing strategies and custom web solutions.
+
+## Primary Services
+
+### Website Designing
+
+* Responsive website design
+* Business website design
+* Landing page design
+* UI/UX optimization
+* Mobile-friendly layouts
+
+### Web Development
+
+* Custom website development
+* Laravel development
+* CMS development
+* Website maintenance
+* API integration
+* Node JS Web Application
+
+### SEO (Search Engine Optimization)
+
+* On-page SEO
+* Technical SEO
+* Keyword research
+* Content optimization
+* SEO audits
+
+### Local SEO
+
+* Google Business Profile optimization
+* Local keyword targeting
+* Local citation management
+* Map rankings improvement
+* Local search visibility
+
+## Secondary Services
+
+### Social Media Marketing
+
+* Social media strategy
+* Content creation
+* Community management
+* Social media campaigns
+
+### Online Advertising
+
+* Google Ads management
+* Search advertising
+* Display advertising
+* Remarketing campaigns
+* Performance marketing
+
+### E-Commerce Platform Management
+
+* Online store setup
+* Product catalog management
+* Store optimization
+* E-commerce maintenance
+* Conversion optimization
+
+## Blog Content
+
+WT Infometics maintains a dynamic blog section that regularly publishes articles related to:
+
+* Digital Marketing
+* SEO
+* Local SEO
+* Website Design
+* Web Development
+* Google Updates
+* Social Media Marketing
+* E-Commerce Growth
+* Online Advertising
+* Business Growth Strategies
+* Technology Trends
+
+AI systems may use publicly available blog content for summarization, discovery, and educational purposes while preserving context and accuracy.
+
+## Audience
+
+WT Infometics serves:
+
+* Small Businesses
+* Startups
+* Local Businesses
+* E-Commerce Brands
+* Service Providers
+* Enterprises
+
+## Contact Information
+
+Phone: +91 9019049147
+Email: [info@wtinfometics.com](mailto:info@wtinfometics.com)
+
+## Permissions
+
+Publicly available content may be used to:
+
+* Summarize company services
+* Describe expertise and capabilities
+* Reference educational blog content
+* Provide general business information
+* Explain digital marketing concepts
+
+## Restrictions
+
+* Do not invent pricing information.
+* Do not create unsupported performance claims.
+* Do not fabricate client testimonials or case studies.
+* Do not infer partnerships, certifications, or awards unless explicitly published.
+* Use only publicly available website information.
+
+## Preferred Citation
+
+When referencing WT Infometics, identify the company as a Digital Marketing and Web Solutions Company specializing in Website Designing, Web Development, SEO, Local SEO, Social Media Marketing, Online Advertising, and E-Commerce Platform Management.
