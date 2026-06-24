@@ -1,6 +1,4 @@
  @extends('Admin.Pages.main')
  @section('content')
-
- @include('Admin.Components.enquires')       
-
+     @include('Admin.Components.enquires')
  @endsection

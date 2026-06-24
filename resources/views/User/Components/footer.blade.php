@@ -25,12 +25,12 @@
                 <div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h4 class="footer-title"> Services </h4>
                     <ul class="footer-links">
-                        <li><a >Web Designing</a></li>
-                        <li><a >Web Development</a></li>
-                        <li><a >SEO Services</a></li>
-                        <li><a >Local SEO</a></li>
-                        <li><a >Google Ads</a></li>
-                        <li><a >Social Media Marketing</a></li>
+                        <li><a>Web Designing</a></li>
+                        <li><a>Web Development</a></li>
+                        <li><a>SEO Services</a></li>
+                        <li><a>Local SEO</a></li>
+                        <li><a>Google Ads</a></li>
+                        <li><a>Social Media Marketing</a></li>
                     </ul>
                 </div> <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -69,19 +69,19 @@
                         </div>
                     </div> <!-- Social Icons -->
                     <div class="social-links">
-                        <a target="_blank" href="https://www.facebook.com/profile.php?id=61552061820126"> 
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=61552061820126">
                             <i class="fab fa-facebook-f"></i>
-                         </a>
-                        <a target="_blank" href="https://www.instagram.com/wt_infometics/"> 
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/wt_infometics/">
                             <i class="fab fa-instagram"></i>
-                         </a>
-                        <a target="_blank" href="https://www.linkedin.com/company/wtinfometics/?viewAsMember=true"> 
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/company/wtinfometics/?viewAsMember=true">
                             <i class="fab fa-linkedin-in"></i>
-                         </a>
-                        <a target="_blank" href="https://www.youtube.com/@WTInfometics"> 
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@WTInfometics">
                             <i class="fab fa-youtube"></i>
-                         </a> 
-                        <a target="_blank" href="https://wa.me/919019049147"> 
+                        </a>
+                        <a target="_blank" href="https://wa.me/919019049147">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -98,7 +98,7 @@
             </div>
         </div>
     </footer>
-     <!-- Footer End -->
+    <!-- Footer End -->
 
     <!-- Floating Action Buttons Start -->
     <div class="floating-actions wow fadeInUp" data-wow-delay="0.3s">

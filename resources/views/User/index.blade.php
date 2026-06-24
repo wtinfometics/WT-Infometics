@@ -2,33 +2,40 @@
 
 <!-- Page Meta Data Starts -->
 @section('metadata')
-    <title>WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth</title>
-    <meta content="web development agency India, SEO company, local SEO experts, website design services, digital marketing agency, custom website development, WT Infometics" name="keywords">
-    <meta content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth." name="description">
+    <title>WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings,
+        visibility, and online growth</title>
+    <meta
+        content="web development agency India, SEO company, local SEO experts, website design services, digital marketing agency, custom website development, WT Infometics"
+        name="keywords">
+    <meta
+        content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth."
+        name="description">
 
     <!-- Open Graph Meta Tags -->
 
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="WT Infometics">
-<meta property="og:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
-<meta property="og:description" content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
-<meta property="og:url" content="https://wtinfometics.com">
-<meta property="og:image" content="https://wtinfometics.com/logo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WT Infometics">
+    <meta property="og:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
+    <meta property="og:description"
+        content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
+    <meta property="og:url" content="https://wtinfometics.com">
+    <meta property="og:image" content="https://wtinfometics.com/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
 
-<!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card Meta Tags -->
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
-<meta name="twitter:description" content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
-<meta name="twitter:image" content="https://wtinfometics.com/logo.png">
-<meta name="twitter:site" content="@wtinfometics">
-<meta name="twitter:creator" content="@wtinfometics">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WT Infometics | Website Development & SEO Services to Grow Your Business">
+    <meta name="twitter:description"
+        content="WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings, visibility, and online growth">
+    <meta name="twitter:image" content="https://wtinfometics.com/logo.png">
+    <meta name="twitter:site" content="@wtinfometics">
+    <meta name="twitter:creator" content="@wtinfometics">
 
-<!-- Organization schema -->
-  <script type="application/ld+json">
+    <!-- Organization schema -->
+    <script type="application/ld+json">
 {!! json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -49,7 +56,8 @@
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
 
-<!-- Local Business schema --><script type="application/ld+json">
+    <!-- Local Business schema -->
+    <script type="application/ld+json">
 {!! json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'ProfessionalService',
@@ -89,22 +97,19 @@
     ]
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
-
 @endsection
 <!-- Page Meta Data Ends -->
 
 <!-- Page Content Starts -->
 @section('pagecontent')
+    @include('User.Components.carousal') <!-- Index carousal -->
+    @include('User.Components.about') <!-- Index about -->
+    @include('User.Components.skills') <!-- Index Skills -->
+    @include('User.Components.portfolio') <!-- Index Portfolios -->
+    @include('User.Components.work-flow') <!-- Index Work -Flow -->
+    @include('User.Components.service-index') <!-- Index Service For Index Page -->
 
- @include('User.Components.carousal')           <!-- Index carousal -->
- @include('User.Components.about')              <!-- Index about -->
- @include('User.Components.skills')             <!-- Index Skills -->
- @include('User.Components.portfolio')          <!-- Index Portfolios -->
- @include('User.Components.work-flow')          <!-- Index Work -Flow -->
- @include('User.Components.service-index')      <!-- Index Service For Index Page -->
-
- @include('User.Components.quote')              <!-- Index Quote -->
- @include('User.Components.blogs-index')        <!-- Index Blogs For Index Page -->
-      
+    @include('User.Components.quote') <!-- Index Quote -->
+    @include('User.Components.blogs-index') <!-- Index Blogs For Index Page -->
 @endsection
 <!-- Page Content Ends -->

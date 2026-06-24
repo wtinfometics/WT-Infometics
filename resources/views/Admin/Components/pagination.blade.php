@@ -16,7 +16,6 @@
 
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
-
             {{-- Three Dots --}}
             @if (is_string($element))
                 <li class="page-item disabled">
@@ -38,7 +37,6 @@
                     </li>
                 @endforeach
             @endif
-
         @endforeach
 
         {{-- Next Button --}}

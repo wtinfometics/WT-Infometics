@@ -1,4 +1,4 @@
-<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>'; ?>
 
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -46,9 +46,9 @@
     </url>
 
     <!-- Dynamic Blogs -->
-    @foreach($postData as $post)
+    @foreach ($postData as $post)
         <url>
-            <loc>{{ url('/blogs/'.$post->post_slug) }}</loc>
+            <loc>{{ url('/blogs/' . $post->post_slug) }}</loc>
             <lastmod>{{ $post->updated_at->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>

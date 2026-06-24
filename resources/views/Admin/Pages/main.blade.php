@@ -18,40 +18,40 @@
         content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="CodedThemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('Admin/assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Admin/assets/images/favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/bootstrap/css/bootstrap.min.css') }}">
     <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/icon/themify-icons/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/icon/themify-icons/themify-icons.css') }}">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/icon/icofont/css/icofont.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/icon/icofont/css/icofont.css') }}">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/jquery.mCustomScrollbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('Admin/assets/css/jquery.mCustomScrollbar.css') }}">
 
-        <!-- CK Editor CDN -->
+    <!-- CK Editor CDN -->
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 </head>
 
 <body>
     <!-- Pre-loader start -->
-        @include('Admin.Components.pre-loader')
+    @include('Admin.Components.pre-loader')
     <!-- Pre-loader end -->
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-        <!-- Top Bar Starts -->
+            <!-- Top Bar Starts -->
             @include('Admin.Components.topbar')
-        <!-- Top Bar Ends -->
+            <!-- Top Bar Ends -->
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     <!-- Side Bar Starts -->
                     @include('Admin.Components.sidebar')
                     <!-- Side Bar Ends -->
-                        @yield('content')
+                    @yield('content')
                 </div>
             </div>
         </div>
@@ -62,39 +62,38 @@
 
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
-<script type="text/javascript" src="{{ asset('Admin/assets/js/jquery/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Admin/assets/js/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Admin/assets/js/popper.js/popper.min.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Admin/assets/js/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/popper.js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- jquery slimscroll js -->
-       <script type="text/javascript" src="{{ asset('Admin/assets/js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
     <!-- modernizr js -->
-    <script type="text/javascript" src="{{ asset('Admin/assets/js/modernizr/modernizr.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/modernizr/modernizr.js') }}"></script>
     <!-- am chart -->
-    <script src="{{ asset('Admin/assets/pages/widget/amchart/amcharts.min.js')}}"></script>
-    <script src="{{ asset('Admin/assets/pages/widget/amchart/serial.min.js')}}"></script>
+    <script src="{{ asset('Admin/assets/pages/widget/amchart/amcharts.min.js') }}"></script>
+    <script src="{{ asset('Admin/assets/pages/widget/amchart/serial.min.js') }}"></script>
     <!-- Todo js -->
-    <script type="text/javascript " src="{{ asset('Admin/assets/pages/todo/todo.js')}} "></script>
+    <script type="text/javascript " src="{{ asset('Admin/assets/pages/todo/todo.js') }} "></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="{{ asset('Admin/assets/pages/dashboard/custom-dashboard.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('Admin/assets/js/script.js')}}"></script>
-    <script type="text/javascript " src="{{ asset('Admin/assets/js/SmoothScroll.js')}}"></script>
-    <script src="{{ asset('Admin/assets/js/pcoded.min.js')}}"></script>
-    <script src="{{ asset('Admin/assets/js/demo-12.js')}}"></script>
-    <script src="{{ asset('Admin/assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/pages/dashboard/custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Admin/assets/js/script.js') }}"></script>
+    <script type="text/javascript " src="{{ asset('Admin/assets/js/SmoothScroll.js') }}"></script>
+    <script src="{{ asset('Admin/assets/js/pcoded.min.js') }}"></script>
+    <script src="{{ asset('Admin/assets/js/demo-12.js') }}"></script>
+    <script src="{{ asset('Admin/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script>
         var $window = $(window);
         var nav = $('.fixed-button');
-        $window.scroll(function () {
+        $window.scroll(function() {
             if ($window.scrollTop() >= 200) {
                 nav.addClass('active');
-            }
-            else {
+            } else {
                 nav.removeClass('active');
             }
         });
     </script>
-     <script>
+    <script>
         ClassicEditor
             .create(document.querySelector('#description'))
             .catch(error => {
