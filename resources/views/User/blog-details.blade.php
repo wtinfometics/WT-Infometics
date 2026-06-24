@@ -41,32 +41,45 @@
     <meta name="twitter:creator" content="@WInfometics">
 
     <!-- Scheme Markup Article -->
-    <script type="application/ld+json">
-{!! json_encode([
+@php
+use Illuminate\Support\Str;
+
+$schema = [
     '@context' => 'https://schema.org',
     '@type' => 'BlogPosting',
     'headline' => $data->postMeta->meta_title ?? $data->post_title,
-    'description' => $data->postMeta->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($data->description), 160),
-    'image' => asset($data->featured_image),
+    'description' => $data->postMeta->meta_description
+        ?? Str::limit(strip_tags($data->description), 160),
+    'image' => url($data->featured_image),
+
     'mainEntityOfPage' => [
         '@type' => 'WebPage',
         '@id' => url('/blogs/' . $data->post_slug),
     ],
+
     'author' => [
         '@type' => 'Organization',
         'name' => 'WT Infometics',
     ],
+
     'publisher' => [
         '@type' => 'Organization',
         'name' => 'WT Infometics',
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => asset('images/logo.png'),
+            'url' => url('images/logo.png'),
         ],
     ],
-    'datePublished' => optional($data->created_at)->toIso8601String(),
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+
+    'datePublished' => optional($data->created_at)?->toIso8601String(),
+    'dateModified' => optional($data->updated_at)?->toIso8601String(),
+];
+@endphp
+
+<script type="application/ld+json">
+{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
+
 @endsection
 <!-- Page Meta Data Ends -->
 

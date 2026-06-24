@@ -2,8 +2,7 @@
 
 <!-- Page Meta Data Starts -->
 @section('metadata')
-    <title>WT Infometics offers website development, SEO, and local SEO services to help businesses improve rankings,
-        visibility, and online growth</title>
+    <title>WT Infometics | Website Development & SEO Services</title>
     <meta
         content="web development agency India, SEO company, local SEO experts, website design services, digital marketing agency, custom website development, WT Infometics"
         name="keywords">
@@ -35,14 +34,14 @@
     <meta name="twitter:creator" content="@wtinfometics">
 
     <!-- Organization schema -->
-    <script type="application/ld+json">
-{!! json_encode([
+@php
+$schema = [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
     '@id' => url('/') . '/#organization',
     'name' => 'WT Infometics',
     'url' => url('/'),
-    'logo' => asset('logo.png'),
+    'logo' => url('/logo.png'),
     'image' => asset('assets/img/logo.png'),
     'description' => 'WT Infometics provides website development, SEO, local SEO, and digital marketing services to help businesses improve their online presence and generate more leads.',
     'email' => 'info@wtinfometics.com',
@@ -53,49 +52,16 @@
         'https://www.youtube.com/@WTInfometics',
         'https://www.linkedin.com/company/wtinfometics/'
     ]
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+];
+@endphp
+
+<script type="application/ld+json">
+{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 
     <!-- Local Business schema -->
-    <script type="application/ld+json">
-{!! json_encode([
-    '@context' => 'https://schema.org',
-    '@type' => 'ProfessionalService',
-    '@id' => url('/') . '/#professionalservice',
-    'name' => 'WT Infometics',
-    'url' => url('/'),
-    'image' => asset('assets/img/logo.png'),
-    'description' => 'WT Infometics offers Web Development, SEO, Local SEO, Social Media Marketing, E-Commerce Management, Google Ads, Meta Ads, and Digital Marketing services.',
-    'telephone' => '+919019049147',
-    'email' => 'info@wtinfometics.com',
-    'address' => [
-        '@type' => 'PostalAddress',
-        'addressLocality' => 'Kumta',
-        'postalCode' => '581343',
-        'addressCountry' => 'IN'
-    ],
-    'openingHoursSpecification' => [
-        [
-            '@type' => 'OpeningHoursSpecification',
-            'dayOfWeek' => [
-                'Monday',
-                'Tuesday',
-                'Wednesday',
-                'Thursday',
-                'Friday',
-                'Saturday'
-            ],
-            'opens' => '09:30',
-            'closes' => '18:00'
-        ]
-    ],
-    'sameAs' => [
-        'https://www.facebook.com/profile.php?id=61552061820126',
-        'https://www.instagram.com/wt_infometics/',
-        'https://www.youtube.com/@WTInfometics',
-        'https://www.linkedin.com/company/wtinfometics/'
-    ]
-], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+ <script type="application/ld+json">
+{!! json_encode($localSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endsection
 <!-- Page Meta Data Ends -->

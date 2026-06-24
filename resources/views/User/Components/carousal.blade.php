@@ -9,10 +9,10 @@
                 <div class="container">
                     <div class="content wow fadeInUp">
                         <span class="badge">Creative Digital Agency</span>
-                        <h1>
+                        <h2>
                             We Grow Your Business
                             <span class="gradient-text">Online</span>
-                        </h1>
+                        </h2>
                         <p>
                             SEO • Google Ads • Social Media Marketing • Web Development • Branding
                         </p>
@@ -32,10 +32,10 @@
                 <div class="container">
                     <div class="content wow fadeInUp">
                         <span class="badge">Performance Marketing</span>
-                        <h1>
+                        <h2>
                             Turn Clicks Into
                             <span class="gradient-text">Customers</span>
-                        </h1>
+                        </h2>
                         <p>
                             Data-driven strategies that maximize ROI and conversions.
                         </p>

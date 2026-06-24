@@ -21,7 +21,8 @@ class HomeController extends Controller
             //code...
             $posts=$this->postService->getAllPosts();
             $data = $posts['data'] ?? [];
-            return view('User.index', compact('data'));
+            $localSchema=$this->localSchema();
+            return view('User.index', compact('data','localSchema'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();
@@ -38,6 +39,43 @@ class HomeController extends Controller
             ->view('User.sitemap', compact('postData'))
             ->header('Content-Type', 'application/xml');
     
-       
+    }
+
+    // Local Business Schema
+    public function localSchema(){
+        $schema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'ProfessionalService',
+    '@id' => url('/') . '/#professionalservice',
+    'name' => 'WT Infometics',
+    'url' => url('/'),
+    'image' => asset('assets/img/logo.png'),
+    'description' => 'WT Infometics offers Web Development, SEO, Local SEO, Social Media Marketing, E-Commerce Management, Google Ads, Meta Ads, and Digital Marketing services.',
+    'telephone' => '+919019049147',
+    'email' => 'info@wtinfometics.com',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'addressLocality' => 'Kumta',
+        'postalCode' => '581343',
+        'addressCountry' => 'IN'
+    ],
+    'openingHoursSpecification' => [
+        [
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => [
+                'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'
+            ],
+            'opens' => '09:30',
+            'closes' => '18:00'
+        ]
+    ],
+    'sameAs' => [
+        'https://www.facebook.com/profile.php?id=61552061820126',
+        'https://www.instagram.com/wt_infometics/',
+        'https://www.youtube.com/@WTInfometics',
+        'https://www.linkedin.com/company/wtinfometics/'
+    ]
+];
+return $schema;
     }
 }
