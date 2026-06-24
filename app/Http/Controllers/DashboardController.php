@@ -53,7 +53,7 @@ class DashboardController extends Controller
                 'enquiries'=>$totalEnquiry,
                 'testimonials'=>$totalTestimonials
             ];
-            return view('Admin.Pages.Dashboard',compact('data'));
+            return view('Admin.Pages.dashboard',compact('data'));
         } catch (\Throwable $th) {
             //throw $th;
             return redirect()->back()->with('error', $th->getMessage())->withInput();
