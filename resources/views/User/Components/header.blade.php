@@ -15,10 +15,10 @@
 <!-- Loader / Spinner End -->
 
 <!-- Topbar Start -->
-<div class="container-fluid topbar d-none d-lg-block wow fadeInDown">
+<!-- <div class="container-fluid topbar d-none d-lg-block wow fadeInDown">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center py-2">
-            <!-- Left Info -->
+            Left Info
             <div class="topbar-left d-flex gap-4">
                 <div>
                     <i class="fas fa-phone-alt"></i>
@@ -29,7 +29,7 @@
                     <span>info@wtinfometics.com</span>
                 </div>
             </div>
-            <!-- Right Social -->
+            Right Social
             <div class="topbar-right d-flex gap-2">
                 <a target="_blank" href="https://www.facebook.com/profile.php?id=61552061820126">
                     <i class="fab fa-facebook-f"></i>
@@ -49,14 +49,14 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Topbar End -->
 
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top main-navbar wow fadeInUp">
     <div class="container">
         <!-- Brand -->
-        <a class="navbar-brand fw-bold" href="#">
+        <a class="navbar-brand fw-bold" href="/">
             WT <span>Infometics</span>
         </a>
         <!-- Toggle -->

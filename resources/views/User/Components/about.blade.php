@@ -83,7 +83,7 @@
             <!-- Right Image -->
             <div class="col-lg-6 wow zoomIn" data-wow-delay="0.3s">
                 <div class="about-image h-100">
-                    <img src="{{ asset('User/img/abt1.jpg') }}" alt="About Us" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ asset('User/img/abt1.webp') }}" alt="About Us" class="img-fluid rounded-4 shadow-lg">
                 </div>
             </div>
         </div>

@@ -68,7 +68,7 @@ $schema = [
 
 <!-- Page Content Starts -->
 @section('pagecontent')
-    @include('User.Components.carousal') <!-- Index carousal -->
+    @include('User.Components.hero') <!-- Index Hero section -->
     @include('User.Components.about') <!-- Index about -->
     @include('User.Components.skills') <!-- Index Skills -->
     @include('User.Components.portfolio') <!-- Index Portfolios -->
