@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\Validator;
 
 class ProjectValidator extends Request
 {
-    public static function validate(Request $request,string $routeName,?int $id=null){
+    public static function validate(Request $request,string $routeName){
         return Validator::make(
             $request->all(),
-            self::rules($routeName,$id)
+            self::rules($routeName)
         );
     }
 
-    public static function rules(string $routeName,?int $id):array{
+    public static function rules(string $routeName):array{
         return match ($routeName) {
             'project.store'  => self::createRules() ,
-            'project.update' => self:: updateRules($id),
+            'project.update' => self:: updateRules(),
             default => [],
         };
     }
@@ -40,7 +40,7 @@ class ProjectValidator extends Request
         ];
     }
 
-    public static function updateRules(?int $id):array{
+    public static function updateRules():array{
            return [
             'project_name'=>'required|string',
             'category_id' => 'required|exists:categories,category_id',

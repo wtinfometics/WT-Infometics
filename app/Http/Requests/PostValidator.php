@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\Validator;
 
 class PostValidator extends Request
 { 
-     public static function validate(Request $request,string $routeName,?int $id=null){
+     public static function validate(Request $request,string $routeName){
         return Validator::make(
             $request->all(),
-            self::rules($routeName,$id)
+            self::rules($routeName)
         );
     }
 
     public static function rules(string $routeName):array{
         return match ($routeName) {
             'post.store'  => self::createRules() ,
-            'post.update' => self:: updateRules($id),
+            'post.update' => self:: updateRules(),
             'blogs.search' => self:: searchRules(),
             default => [],
         };
@@ -27,12 +27,12 @@ class PostValidator extends Request
         return [
             'post_title'=>'required|string',
             'category_id' => 'required|exists:categories,category_id',
-            'short_description'=>'required|String',
+            'short_description'=>'required|String|max:255',
             'description'=>'required|String',
             'featured_image'=>'required|image|mimes:jpg,jpeg,png,webp|max:1024|dimensions:width=500,height=250',
-            'meta_title' => 'required|string',
-            'meta_description'=>'required|string',
-            'keywords'=>'required|string',
+            'meta_title' => 'required|string|max:60',
+            'meta_description' => 'required|string|max:160',
+            'keywords' => 'required|string|max:255',
             'status'=>'nullable|string'
         ];
     }
@@ -41,12 +41,12 @@ class PostValidator extends Request
            return [
             'post_title'=>'required|string',
             'category_id' => 'required|exists:categories,category_id',
-            'short_description'=>'required|String',
+            'short_description'=>'required|String|max:255',
             'description'=>'required|String',
             'featured_image'=>'image|mimes:jpg,jpeg,png,webp|max:1024|dimensions:width=500,height=250',
-            'meta_title' => 'required|string',
-            'meta_description'=>'required|string',
-            'keywords'=>'required|string',
+            'meta_title' => 'required|string|max:60',
+            'meta_description' => 'required|string|max:160',
+            'keywords' => 'required|string|max:255',
             'status'=>'required|string'
         ];
     }

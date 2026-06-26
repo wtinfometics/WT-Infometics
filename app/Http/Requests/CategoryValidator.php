@@ -10,24 +10,24 @@ class CategoryValidator
      /**
      * Validate request based on route name
      */
-    public static function validate(Request $request, string $routeName, ?int $id = null)
+    public static function validate(Request $request, string $routeName)
     {
         return Validator::make(
             $request->all(),
-            self::rules($routeName, $id)
+            self::rules($routeName)
         );
     }
 
     /**
      * Route-based rule classification
      */
-    private static function rules(string $routeName, ?int $id = null): array
+    private static function rules(string $routeName): array
     {
         return match ($routeName) {
 
             'category.store' => self::createRules(),
 
-            'category.update' => self::updateRules($id),
+            'category.update' => self::updateRules(),
 
             default => [],
         };
@@ -47,10 +47,10 @@ class CategoryValidator
     /**
      * UPDATE validation rules
      */
-    private static function updateRules(?int $id): array
+    private static function updateRules(): array
     {
         return [
-            'category_name' => 'required|string|max:255' . $id,
+            'category_name' => 'required|string|max:255' ,
             'status'        => 'required|boolean',
         ];
     }

@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\Validator;
 
 class TestimonialValidator extends Request
 {
-    public static function validate(Request $request,string $routeName,?int $id=null){
+    public static function validate(Request $request,string $routeName){
         return Validator::make(
             $request->all(),
-            self::rules($routeName,$id)
+            self::rules($routeName)
         );
     }
 
-    public static function rules(string $routeName,?int $id):array{
+    public static function rules(string $routeName):array{
         return match ($routeName) {
             'testimonial.store'  => self::createRules() ,
-            'testimonial.update' => self:: updateRules($id),
+            'testimonial.update' => self:: updateRules(),
             default => [],
         };
     }
@@ -31,7 +31,7 @@ class TestimonialValidator extends Request
         ];
     }
 
-    public static function updateRules(?int $id):array{
+    public static function updateRules():array{
            return [
             'name'=>'required|string',
             'rating'=>'required|numeric',
